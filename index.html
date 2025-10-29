@@ -599,7 +599,7 @@
     <script src="https://unpkg.com/inputmask/dist/inputmask.min.js"></script>
 
 <script>
-    // Helper to read cookies
+    // Helper to read cookies (залишаємо як було)
     function getCookie(name) {
         const value = "; " + document.cookie;
         const parts = value.split("; " + name + "=");
@@ -607,7 +607,7 @@
         return "";
     }
 
-    // Генерация UUID v4
+    // Генерация UUID v4 (залишаємо як було)
     function generateUUID() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
             const r = Math.random() * 16 | 0;
@@ -616,7 +616,7 @@
         });
     }
 
-    // Получение параметров из URL
+    // Получение параметров из URL (залишаємо як було)
     function getUrlParams() {
         const params = {};
         const searchParams = new URLSearchParams(window.location.search);
@@ -641,8 +641,6 @@
         const urlParams = getUrlParams();
         const testId = generateUUID();
 
-        
-
         // Собираем все данные формы
         const formData = new FormData(form);
         const dataObj = {};
@@ -664,14 +662,18 @@
         console.log("=== Data to POST ===", JSON.stringify(dataObj, null, 2));
 
         try {
-            const GAS_URL = "https://script.google.com/macros/s/AKfycbxVetJCxVfwEVDDft1V_X66GEerE9Ap-AIvO1g_9rQKEqWXTAzI-fOeMzsJAUtNAS7Rmw/exec"
+            // URL вашого розгорнутого веб-додатку
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbxVetJCxVfwEVDDft1V_X66GEerE9Ap-AIvO1g_9rQKEqWXTAzI-fOeMzsJAUtNAS7Rmw/exec";
 
             const response = await fetch(GAS_URL, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                // !!! ВИРІШЕННЯ ПРОБЛЕМИ 405/CORS:
+                // Змінюємо на text/plain, щоб уникнути Preflight-запиту (OPTIONS)
+                headers: { "Content-Type": "text/plain" }, 
                 body: JSON.stringify(dataObj)
             });
 
+            // Обробляємо відповідь від сервера
             const result = await response.json();
             console.log("=== Response from server ===", result);
 
