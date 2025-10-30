@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPSY | Центр тестування</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --main-blue: #39f;
+            --dark-bg: #1b2831;
+            --light-bg: #fff;
+            --light-gray-bg: #f9fafb;
+            --footer-bg: #152129;
+            --footer-text: #a0aec0;
+            --header-bg: #343a40;
+            --logo-sub-text: #9ca3af;
+        }
+
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .uk-logo {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--main-blue);
+        }
+
+        .uk-logo-sub {
+            font-size: 0.75rem;
+            color: var(--logo-sub-text);
+            margin-top: -4px;
+        }
+
+        header .shadow {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .rounded-4 {
+            border-radius: 1rem;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="shadow" style="background-color: var(--header-bg);">
+        <nav class="navbar navbar-expand-md py-4">
+            <div class="container-xl">
+                <div class="navbar-brand d-flex flex-column py-0">
+                    <span class="uk-logo">Helpsy</span>
+                    <span class="uk-logo-sub d-none d-sm-block">
+                        Підтримка вашого ментального здоров'я
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1 w-100 py-5">
+        <div class="container-lg mx-auto" style="max-width: 760px;">
+
+<!-- RESULT BLOCK -->
+<section class="mt-5 mb-5">
+    <div class="p-5 rounded-4 bg-white shadow-lg text-center">
+
+        <header class="mb-4">
+            <h1 class="fs-1 fw-bold text-dark mb-3" style="letter-spacing: 0.02em;">
+                <i class="bi bi-envelope-check text-primary me-2"></i> Тест пройдено
+            </h1>
+            <div class="mx-auto mb-3"
+                style="width: 80px; height: 4px; background-color: var(--main-blue); border-radius: 2px;">
+            </div>
+        </header>
+
+        <p class="text-dark fs-5 mb-5">
+            Результати вашого тесту були надіслані на email, вказаний при реєстрації.
+        </p>
+
+        <div class="d-flex flex-column align-items-center gap-3">
+            <!-- Кнопка: Повернутися на головну -->
+            <a href="https://psytests.psikhiatr-onlayn.kiev.ua" target="_blank" 
+               class="btn fw-bold fs-6 rounded-4 shadow-sm d-flex align-items-center justify-content-center gap-2"
+               style="
+                    background: #ffffff;
+                    color: var(--main-blue);
+                    border: none;
+                    width: 280px;
+                    height: 55px;
+                    transition: all 0.3s ease;
+               "
+               onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='scale(1.03)'"
+               onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+                <i class="bi bi-house fs-4"></i>
+                Повернутися на головну
+            </a>
+
+            <!-- Кнопка: Підтримка -->
+            <a href="https://forms.gle/BubikRYKUbMaEMLb8" target="_blank"
+               class="btn fw-bold fs-6 rounded-4 shadow-sm d-flex align-items-center justify-content-center gap-2"
+               style="
+                    background: #ffffff;
+                    color: var(--main-blue);
+                    border: none;
+                    width: 280px;
+                    height: 55px;
+                    transition: all 0.3s ease;
+               "
+               onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='scale(1.03)'"
+               onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+                <i class="bi bi-headset fs-4"></i>
+                Підтримка
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+            <!-- Потрібна допомога спеціаліста? -->
+            <section id="consultation" class="mt-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 shadow-lg border-0 text-center" style="
+                background: linear-gradient(135deg, var(--main-blue) 0%, #4fa9ff 40%, #86c9ff 100%);
+                color: white;
+            ">
+
+                        <!-- Заголовок -->
+                        <h2 class="text-uppercase fw-bold mb-4" style="color: #ffffff;">
+                            Потрібна допомога спеціаліста?
+                        </h2>
+
+                        <!-- Опис -->
+                        <p class="text-light mb-5" style="max-width: 650px; margin: 0 auto; opacity: 0.9;">
+                            Поговоріть із лікарем просто зараз — без очікування, без осуду, у зручному для вас форматі.
+                        </p>
+
+                        <!-- Контактні кнопки -->
+                        <div class="d-flex flex-column align-items-center gap-3">
+
+                            <!-- Кнопка: Обрати лікаря -->
+                            <div class="w-100" style="max-width: 400px;">
+                                <a href="https://psikhiatr-onlayn.kiev.ua" target="_blank"
+                                    class="btn w-100 fw-bold fs-6 rounded-4 shadow-sm d-flex align-items-center justify-content-center gap-2"
+                                    style="
+                            background: white;
+                            color: var(--main-blue);
+                            border: none;
+                            height: 55px;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='scale(1.03)'"
+                                    onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+                                    👩‍⚕️ Обрати лікаря онлайн
+                                </a>
+                            </div>
+
+                            <!-- Кнопка: Telegram Bot -->
+                            <div class="w-100" style="max-width: 400px;">
+                                <a href="https://t.me/PsyOnlineHelpBot" target="_blank"
+                                    class="btn w-100 fw-bold fs-6 rounded-4 shadow-sm d-flex align-items-center justify-content-center gap-2"
+                                    style="
+                            background: #ffffff;
+                            color: var(--main-blue);
+                            border: none;
+                            height: 55px;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='scale(1.03)'"
+                                    onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+                                    <i class="bi bi-telegram fs-4"></i>
+                                    🤖 Записатися через чат-бота
+                                </a>
+                            </div>
+
+                            <!-- Розділювач -->
+                            <div class="d-flex align-items-center justify-content-center gap-3 mt-4 mb-2"
+                                style="opacity: 0.8;">
+                                <div style="height: 1px; width: 60px; background: rgba(255,255,255,0.6);"></div>
+                                <span class="text-white fw-semibold">або скануй QR-код телефоном</span>
+                                <div style="height: 1px; width: 60px; background: rgba(255,255,255,0.6);"></div>
+                            </div>
+
+                            <!-- QR під кнопками -->
+                            <div class="mt-3">
+                                <img src="https://psikhiatr-onlayn.kiev.ua/assets/img/qr_tg_bot.png"
+                                    alt="QR-код Telegram-бота" class="img-fluid shadow-sm border rounded-3 bg-white p-2"
+                                    style="max-width: 120px;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-dark mt-auto py-5" style="background-color: var(--footer-bg); color: var(--footer-text);">
+        <div class="container-xl px-4 text-center">
+            <span class="uk-logo d-block">Helpsy</span>
+            <span class="uk-logo-sub d-block">Підтримка вашого ментального здоров'я</span>
+            <p class="mt-2">
+                Наша місія — зробити психологічну підтримку доступною та зрозумілою для кожного.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
