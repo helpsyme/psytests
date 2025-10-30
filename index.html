@@ -630,7 +630,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
 
     dataObj['testId'] = testId;
     dataObj['leadid'] = urlParams['leadid'] || "";
-    dataObj['test_type'] = document.getElementById('test_selector')?.selectedOptions[0]?.textContent || "";
+    dataObj['test_type'] = document.getElementById('test_type')?.selectedOptions[0]?.textContent || "";
     dataObj['consent'] = "on";
     dataObj['utm_source'] = urlParams['utm_source'] || "";
     dataObj['utm_medium'] = urlParams['utm_medium'] || "";
