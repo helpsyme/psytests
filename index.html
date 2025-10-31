@@ -652,7 +652,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     } catch {
         dataObj['ip'] = "";
     }
-
+    console.log("dataObj перед отправкой:", dataObj);
     const queryString = new URLSearchParams(dataObj).toString();
     const GAS_URL = `https://script.google.com/macros/s/AKfycbzUzB1jz8kZQY2M9qIQyZINXy9jrx9M93DYBkKRXbwdVoly_MmjmPW5hjsD2fzu8UcbFQ/exec?${queryString}`;
 
