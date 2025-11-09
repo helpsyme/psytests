@@ -847,23 +847,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Инициализация FingerprintJS
     const fpPromise = FingerprintJS.load();
 
+    // Получаем testid из URL
+    function getTestIdFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('testid') || '';
+    }
+
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
         spinner.style.display = 'flex';
 
-        // Собираем данные формы
+        // 1. Собираем данные формы
         const formData = {};
         for (let i = 1; i <= 18; i++) {
             const question = form.querySelector(`input[name="q${i}"]:checked`);
             formData[`q${i}`] = question ? question.value : null;
         }
 
-        // Получаем fingerprint
+        // 2. Получаем fingerprint
         const fp = await fpPromise;
-        const result = await fp.get();
-        const fingerprint = result.visitorId; // уникальный идентификатор
+        const fpResult = await fp.get();
+        const fingerprint = fpResult.visitorId;
 
-        // Получаем IP
+        // 3. Получаем IP
         let ip = '';
         try {
             const res = await fetch('https://api.ipify.org?format=json');
@@ -873,11 +879,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.warn('Не удалось получить IP:', err);
         }
 
-        function getTestIdFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('testid') || ''; // если параметра нет — возвращаем пустую строку
-        }
-        // Формируем метаданные
+        // 4. Формируем метаданные
         const meta = {
             testid: getTestIdFromURL(),
             host: window.location.host,
@@ -889,18 +891,32 @@ document.addEventListener('DOMContentLoaded', function () {
             ip: ip
         };
 
-        console.log('Данные формы:', formData, 'Метаданные:', meta);
+        console.log('=== Данные формы ===', formData);
+        console.log('=== Метаданные ===', meta);
 
-        // Вызываем GAS
-        google.script.run
-            .withSuccessHandler(function (response) {
-                window.location.href = "https://psytests.psikhiatr-onlayn.kiev.ua/result_page";
-            })
-            .withFailureHandler(function (error) {
-                spinner.style.display = 'none';
-                alert('Произошла ошибка: ' + error.message);
-            })
-            .processFormData(formData, meta);
+        // 5. Отправка на Apps Script Web App
+        const GAS_URL = 'https://script.google.com/macros/s/AKfycbxkrQhRrqaSuw5mgw7DGPeHDqDuP-Zcll3jFlKkJqenHA2DIDxLTM7J9SnRHxUjvx32HA/exec';
+
+        try {
+            const response = await fetch(GAS_URL, {
+                method: 'POST',
+                mode: 'no-cors', // позволяет отправлять без ошибок CORS, но ответа не будет
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ formData, meta })
+            });
+
+            console.log('Данные успешно отправлены на GAS', response);
+
+            // Перенаправление на страницу результата
+            window.location.href = "https://psytests.psikhiatr-onlayn.kiev.ua/result_page";
+
+        } catch (err) {
+            console.error('Ошибка при отправке на GAS:', err);
+            spinner.style.display = 'none';
+            alert('Произошла ошибка при отправке данных: ' + err.message);
+        }
     });
 });
 </script>
