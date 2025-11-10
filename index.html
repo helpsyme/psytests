@@ -581,122 +581,107 @@ $(document).ready(function() {
 
 
 <script>
-    // === Хелперы ===
+let fingerprint = "";
 
-    function getCookie(name) {
-        const value = "; " + document.cookie;
-        const parts = value.split("; " + name + "=");
-        if (parts.length === 2) return parts.pop().split(";").shift();
-        return "";
-    }
+// Получаем fingerprint
+(async () => {
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
+    fingerprint = result.visitorId;
+})();
 
-    function generateUUID() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            const r = Math.random() * 16 | 0;
-            const v = c === 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-
-    function getUrlParams() {
-        const params = {};
-        const searchParams = new URLSearchParams(window.location.search);
-        for (const [key, value] of searchParams.entries()) {
-            params[key] = value;
-        }
-        return params;
-    }
-
-    let fingerprint = "";
-
-    (async () => {
-        const fp = await FingerprintJS.load();
-        const result = await fp.get();
-        fingerprint = result.visitorId;
-        console.log("Fingerprint:", fingerprint);
-    })();
-
-    document.getElementById("contact-form").addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        const form = e.target;
-        const button = document.getElementById("submit-button");
-        const spinner = document.getElementById("loadingSpinner");
-
-        spinner.style.display = "flex";
-        button.disabled = true;
-
-        const urlParams = getUrlParams();
-        const testId = generateUUID();
-
-        const formData = new FormData(form);
-        const dataObj = {};
-        for (const [key, value] of formData.entries()) {
-            dataObj[key] = value || "";
-        }
-
-        dataObj["testId"] = testId;
-        dataObj["leadid"] = urlParams["leadid"] || "";
-        dataObj["test_type"] = document.getElementById("test_type")?.value || "";
-        dataObj["consent"] = "on";
-        dataObj["utm_source"] = urlParams["utm_source"] || "";
-        dataObj["utm_medium"] = urlParams["utm_medium"] || "";
-        dataObj["utm_campaign"] = urlParams["utm_campaign"] || "";
-        dataObj["utm_term"] = urlParams["utm_term"] || "";
-        dataObj["utm_content"] = urlParams["utm_content"] || "";
-
-        dataObj["host"] = window.location.host;
-        dataObj["referer"] = document.referrer;
-        dataObj["system"] = navigator.platform;
-        dataObj["userAgent"] = navigator.userAgent;
-        dataObj["language"] = navigator.language || navigator.userLanguage;
-        dataObj["fingerprint"] = fingerprint;
-
-        // === Получаем IP ===
-        try {
-            const ipResp = await fetch("https://api.ipify.org?format=json");
-            const ipData = await ipResp.json();
-            dataObj["user_ip"] = ipData.ip || "";
-        } catch {
-            dataObj["user_ip"] = "";
-        }
-
-        console.log("Данные перед отправкой:", dataObj);
-
-        // === Отправляем POST на API ===
-        const API_URL = "https://service.nexson.space/psytests/reg";
-
-        try {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(dataObj)
-            });
-
-            let result;
-            try {
-                result = await response.json();
-            } catch {
-                result = { success: false, message: "Некорректный ответ сервера" };
-            }
-
-            if (result.success) {
-                toastr.success(result.message || "Форма успешно отправлена", "Успех!");
-                form.reset();
-                window.location.href = "thank_you_page.html"; // ← сюда вставь реальный URL
-            } else {
-                toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
-            }
-        } catch (err) {
-            toastr.error("Ошибка при отправке формы", "Ошибка!");
-            console.error("Ошибка POST:", err);
-        } finally {
-            spinner.style.display = "none";
-            button.disabled = false;
-        }
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
     });
+}
+
+function getUrlParams() {
+    const params = {};
+    const searchParams = new URLSearchParams(window.location.search);
+    for (const [key, value] of searchParams.entries()) {
+        params[key] = value;
+    }
+    return params;
+}
+
+document.getElementById("contact-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const button = document.getElementById("submit-button");
+    const spinner = document.getElementById("loadingSpinner");
+
+    spinner.style.display = "flex";
+    button.disabled = true;
+
+    const urlParams = getUrlParams();
+    const testId = generateUUID();
+
+    const formData = new FormData(form);
+    const dataObj = {};
+    for (const [key, value] of formData.entries()) {
+        dataObj[key] = value || "";
+    }
+
+    // Добавляем нужные поля
+    dataObj["testId"] = testId;
+    dataObj["leadid"] = urlParams["leadid"] || "";
+    dataObj["test_type"] = document.getElementById("test_type")?.value || "";
+    dataObj["consent"] = "on";
+    dataObj["utm_source"] = urlParams["utm_source"] || "";
+    dataObj["utm_medium"] = urlParams["utm_medium"] || "";
+    dataObj["utm_campaign"] = urlParams["utm_campaign"] || "";
+    dataObj["utm_term"] = urlParams["utm_term"] || "";
+    dataObj["utm_content"] = urlParams["utm_content"] || "";
+
+    dataObj["host"] = window.location.host;
+    dataObj["referer"] = document.referrer;
+    dataObj["system"] = navigator.platform;
+    dataObj["userAgent"] = navigator.userAgent;
+    dataObj["language"] = navigator.language || navigator.userLanguage;
+    dataObj["fingerprint"] = fingerprint;
+
+    try {
+        const ipResp = await fetch("https://api.ipify.org?format=json");
+        const ipData = await ipResp.json();
+        dataObj["user_ip"] = ipData.ip || "";
+    } catch {
+        dataObj["user_ip"] = "";
+    }
+
+    const LAMBDA_URL = "https://service.nexson.space/psytests/reg"; // твоя Lambda
+
+    try {
+        const response = await fetch(LAMBDA_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dataObj)
+        });
+
+        let result;
+        try {
+            result = await response.json();
+        } catch {
+            result = { success: false, message: "Некорректный ответ сервера" };
+        }
+
+        if (result.success) {
+            toastr.success(result.message || "Форма успешно отправлена", "Успех!");
+            form.reset();
+            window.location.href = "thank_you_page.html"; // замени на свой URL
+        } else {
+            toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
+        }
+    } catch (err) {
+        toastr.error("Ошибка при отправке формы", "Ошибка!");
+        console.error(err);
+    } finally {
+        spinner.style.display = "none";
+        button.disabled = false;
+    }
+});
 </script>
 
 </body>
