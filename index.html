@@ -626,7 +626,7 @@ $("#contact-form").on("submit", async function(e) {
         dataObj[key] = value || "";
     });
 
-    // Добавляем нужные поля
+    // Добавляем служебные поля
     dataObj["testId"] = testId;
     dataObj["leadid"] = urlParams["leadid"] || "";
     dataObj["test_type"] = $("#test_type").val() || "";
@@ -662,15 +662,23 @@ $("#contact-form").on("submit", async function(e) {
         success: function(responseText) {
             let result;
             try {
-                result = typeof responseText === "string" ? JSON.parse(responseText) : responseText;
-            } catch {
+                // 🔹 Если Lambda вернула JSON со строкой в body:
+                if (typeof responseText === "string") {
+                    responseText = JSON.parse(responseText);
+                }
+                result = typeof responseText.body === "string"
+                    ? JSON.parse(responseText.body)
+                    : responseText.body || responseText;
+            } catch (e) {
+                console.error("JSON parse error:", e);
                 result = { success: false, message: "Некорректный ответ сервера" };
             }
 
+            // 🔹 Вывод результата
             if (result.success) {
                 toastr.success(result.message || "Форма успешно отправлена", "Успех!");
                 form.reset();
-                window.location.href = "thank_you_page.html"; // поменяй на свой URL
+                window.location.href = "thank_you_page.html";
             } else {
                 toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
             }
