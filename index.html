@@ -580,6 +580,7 @@ $(document).ready(function() {
 </script>
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 let fingerprint = "";
 
@@ -607,35 +608,34 @@ function getUrlParams() {
     return params;
 }
 
-document.getElementById("contact-form").addEventListener("submit", async function(e) {
+$("#contact-form").on("submit", async function(e) {
     e.preventDefault();
-    const form = e.target;
-    const button = document.getElementById("submit-button");
-    const spinner = document.getElementById("loadingSpinner");
+    const form = this;
+    const $button = $("#submit-button");
+    const $spinner = $("#loadingSpinner");
 
-    spinner.style.display = "flex";
-    button.disabled = true;
+    $spinner.show();
+    $button.prop("disabled", true);
 
     const urlParams = getUrlParams();
     const testId = generateUUID();
 
     const formData = new FormData(form);
     const dataObj = {};
-    for (const [key, value] of formData.entries()) {
+    formData.forEach((value, key) => {
         dataObj[key] = value || "";
-    }
+    });
 
     // Добавляем нужные поля
     dataObj["testId"] = testId;
     dataObj["leadid"] = urlParams["leadid"] || "";
-    dataObj["test_type"] = document.getElementById("test_type")?.value || "";
+    dataObj["test_type"] = $("#test_type").val() || "";
     dataObj["consent"] = "on";
     dataObj["utm_source"] = urlParams["utm_source"] || "";
     dataObj["utm_medium"] = urlParams["utm_medium"] || "";
     dataObj["utm_campaign"] = urlParams["utm_campaign"] || "";
     dataObj["utm_term"] = urlParams["utm_term"] || "";
     dataObj["utm_content"] = urlParams["utm_content"] || "";
-
     dataObj["host"] = window.location.host;
     dataObj["referer"] = document.referrer;
     dataObj["system"] = navigator.platform;
@@ -643,6 +643,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     dataObj["language"] = navigator.language || navigator.userLanguage;
     dataObj["fingerprint"] = fingerprint;
 
+    // Получаем IP
     try {
         const ipResp = await fetch("https://api.ipify.org?format=json");
         const ipData = await ipResp.json();
@@ -653,39 +654,38 @@ document.getElementById("contact-form").addEventListener("submit", async functio
 
     const LAMBDA_URL = "https://service.nexson.space/psytests/reg";
 
-    try {
-        const response = await fetch(LAMBDA_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dataObj)
-        });
+    $.ajax({
+        url: LAMBDA_URL,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(dataObj),
+        success: function(responseText) {
+            let result;
+            try {
+                result = typeof responseText === "string" ? JSON.parse(responseText) : responseText;
+            } catch {
+                result = { success: false, message: "Некорректный ответ сервера" };
+            }
 
-        let result;
-        try {
-            // Разбираем тело ответа Lambda
-            const text = await response.text();
-            result = JSON.parse(text); // ожидаем, что Lambda вернёт JSON из GAS
-        } catch {
-            result = { success: false, message: "Некорректный ответ сервера" };
+            if (result.success) {
+                toastr.success(result.message || "Форма успешно отправлена", "Успех!");
+                form.reset();
+                window.location.href = "thank_you_page.html"; // поменяй на свой URL
+            } else {
+                toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
+            }
+        },
+        error: function(xhr, status, error) {
+            toastr.error("Ошибка при отправке формы", "Ошибка!");
+            console.error("AJAX Error:", status, error);
+        },
+        complete: function() {
+            $spinner.hide();
+            $button.prop("disabled", false);
         }
-
-        if (result.success) {
-            toastr.success(result.message || "Форма успешно отправлена", "Успех!");
-            form.reset();
-            window.location.href = "thank_you_page.html"; // поменяй на свой URL
-        } else {
-            toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
-        }
-    } catch (err) {
-        toastr.error("Ошибка при отправке формы", "Ошибка!");
-        console.error(err);
-    } finally {
-        spinner.style.display = "none";
-        button.disabled = false;
-    }
+    });
 });
 </script>
-
 </body>
 
 </html>
