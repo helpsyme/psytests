@@ -651,7 +651,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         dataObj["user_ip"] = "";
     }
 
-    const LAMBDA_URL = "https://service.nexson.space/psytests/reg"; // твоя Lambda
+    const LAMBDA_URL = "https://service.nexson.space/psytests/reg";
 
     try {
         const response = await fetch(LAMBDA_URL, {
@@ -662,7 +662,9 @@ document.getElementById("contact-form").addEventListener("submit", async functio
 
         let result;
         try {
-            result = await response.json();
+            // Разбираем тело ответа Lambda
+            const text = await response.text();
+            result = JSON.parse(text); // ожидаем, что Lambda вернёт JSON из GAS
         } catch {
             result = { success: false, message: "Некорректный ответ сервера" };
         }
@@ -670,7 +672,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         if (result.success) {
             toastr.success(result.message || "Форма успешно отправлена", "Успех!");
             form.reset();
-            window.location.href = "thank_you_page.html"; // замени на свой URL
+            window.location.href = "thank_you_page.html"; // поменяй на свой URL
         } else {
             toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
         }
