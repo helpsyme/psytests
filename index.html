@@ -26,13 +26,16 @@
 <body class="d-flex flex-column min-vh-100">
 
     <!-- HEADER -->
-    <header class="shadow z-3">
+    <header class="shadow z-3" style="background-color: var(--header-bg) !important;">
         <nav class="navbar navbar-expand-md py-4 navbar-dark-text">
             <div class="container-xl px-4 px-sm-5 px-lg-4">
                 <div class="navbar-brand d-flex flex-column py-0">
                     <span class="uk-logo">Helpsy</span>
-                    <span class="uk-logo-sub d-none d-sm-block">Підтримка вашого ментального здоров'я</span>
+                    <span class="uk-logo-sub d-none d-sm-block">
+                        Підтримка вашого ментального здоров'я
+                    </span>
                 </div>
+
                 <button class="navbar-toggler p-2 rounded" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -44,7 +47,8 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0 align-items-md-center">
                         <li class="nav-item">
-                            <a class="nav-link btn fw-bold px-4 py-2 text-white rounded" href="#consultation">
+                            <a class="nav-link btn fw-bold px-4 py-2 text-white rounded" href="#consultation"
+                                style="background-color: #39f;"> <!-- цвет логотипа -->
                                 Консультація лікаря онлайн
                             </a>
                         </li>
@@ -145,20 +149,25 @@
                                     </select>
                                 </div>
 
+                                <!-- reCAPTCHA v2 -->
                                 <div class="col-12 my-3">
-                                    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                                    <div class="g-recaptcha" data-sitekey="6LcpofsrAAAAAMtJgSbk9pQxUf4fV7vg5wcV6-hU">
+                                    </div>
                                 </div>
 
                                 <div class="col-12 mt-4">
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" id="consent" name="consent"
-                                            checked disabled>
-                                        <label class="form-check-label text-secondary small" for="consent">
-                                            Я погоджуюсь з <a href="<?= appUrl ?>?page=pp" class="text-primary">Політикою конфіденційності</a>
+                                    <div class="form-check w-100 d-flex align-items-center">
+                                        <input class="form-check-input" type="checkbox" id="consent" name="consent" checked disabled 
+                                            style="width: 1.25rem; height: 1.25rem;">
+                                        <label class="form-check-label ms-2 small text-secondary" for="consent">
+                                            Я погоджуюсь з 
+                                            <a href="https://psytests.psikhiatr-onlayn.kiev.ua/pp" class="text-primary fw-medium text-decoration-none">
+                                                Політикою конфіденційності
+                                            </a>
                                         </label>
                                     </div>
-                                    <button type="submit" id="submit-button"
-                                        class="btn btn-primary btn-lg w-100 rounded-pill fw-bold py-3">
+
+                                    <button type="submit" id="submit-button" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold py-3 mt-3">
                                         Розпочати тест
                                     </button>
                                 </div>
@@ -176,12 +185,137 @@
                 </div>
             </section>
 
-            <!-- Опис та FAQ -->
-            <section class="mt-5 mb-5">
+                        <section class="mt-5 mb-5">
                 <div class="container">
-                    <div class="p-5 rounded-4 bg-white shadow-sm border border-light text-center">
-                        <!-- Контент карточек, FAQ и тесты без inline стилей -->
-                        <!-- Добавьте аналогично вашей структуре -->
+                    <div class="p-5 rounded-4 bg-white shadow-sm border border-light">
+
+                        <!-- Заголовок FAQ -->
+                        <h2 class="text-center mb-5 fw-bold" style="color: var(--main-blue); font-size: 2.25rem;">
+                            Поширені запитання (FAQ)
+                        </h2>
+
+                        <!-- FAQ Аккордеон -->
+                        <div class="accordion" id="faqAccordion">
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                        aria-controls="collapseOne"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Навіщо потрібні мої дані?
+                                    </button>
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Ваші дані потрібні для <strong>персоналізації тестів</strong> та точних
+                                        рекомендацій, що відповідають вашим потребам.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Чи є результати діагнозом?
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Ні. Тести — <strong>інструменти попередньої оцінки</strong>. Вони не замінюють
+                                        консультацію лікаря, але допомагають зорієнтуватися.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h3 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Як щодо конфіденційності?
+                                    </button>
+                                </h3>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Дані обробляються відповідно до <strong>Політики конфіденційності</strong> та
+                                        використовуються лише для сервісу. Персональні дані третім особам не
+                                        передаються.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Заголовок тестов -->
+                        <h2 class="text-center mt-5 mb-4 fw-bold" style="color: var(--main-blue); font-size: 2rem;">
+                            Опис доступних тестів
+                        </h2>
+
+                        <!-- Тесты Аккордеон -->
+                        <div class="accordion" id="testsAccordion">
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h4 class="accordion-header" id="testHeadingOne">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#testCollapseOne"
+                                        aria-expanded="false" aria-controls="testCollapseOne"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Тест на ментальне здоров’я
+                                    </button>
+                                </h4>
+                                <div id="testCollapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="testHeadingOne" data-bs-parent="#testsAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Комплексний тест оцінює психоемоційне благополуччя, ознаки депресії, тривожності
+                                        та стресу. Допомагає зрозуміти, на що звернути увагу.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h4 class="accordion-header" id="testHeadingTwo">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#testCollapseTwo"
+                                        aria-expanded="false" aria-controls="testCollapseTwo"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Тест на стрес
+                                    </button>
+                                </h4>
+                                <div id="testCollapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="testHeadingTwo" data-bs-parent="#testsAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Визначає рівень стресу та здатність справлятися з ним. Допомагає зрозуміти, коли
+                                        потрібна підтримка або відпочинок.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h4 class="accordion-header" id="testHeadingThree">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#testCollapseThree"
+                                        aria-expanded="false" aria-controls="testCollapseThree"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Тест на якість сну
+                                    </button>
+                                </h4>
+                                <div id="testCollapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="testHeadingThree" data-bs-parent="#testsAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Перевіряє гігієну сну, ознаки безсоння та інші порушення. Підкаже, чи варто
+                                        змінити режим або звернутися до фахівця.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -192,10 +326,61 @@
     <!-- Spinner -->
     <div id="loadingSpinner"></div>
 
-    <!-- FOOTER -->
-    <footer class="bg-dark mt-auto py-5">
+        <footer class="bg-dark mt-auto py-5" style="background-color: var(--footer-bg) !important;">
         <div class="container-xl px-4 px-sm-5 px-lg-4">
-            <!-- Footer content аналогично вашей структуре -->
+            <div class="row g-4 text-sm">
+
+                <!-- Лого и описание слева -->
+                <div class="col-md-3 col-12">
+                    <span class="uk-logo d-block">Helpsy</span>
+                    <span class="uk-logo-sub d-block">Підтримка вашого ментального здоров'я</span>
+                    <p class="mt-2" style="color: var(--footer-text);">
+                        Наша місія — зробити психологічну підтримку доступною та зрозумілою для кожного.
+                    </p>
+                    <p>v.2.1</p>
+                </div>
+
+                <!-- Блоки прижаты вправо -->
+                <div class="col-md-9 d-flex justify-content-end flex-wrap gap-4">
+
+                    <!-- Допомога -->
+                    <div class="col-md-3 col-6">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Допомога</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="https://psytests.psikhiatr-onlayn.kiev.ua/pp" target="_blank" rel="noopener noreferrer"
+                                    class="text-decoration-none"
+                                    style="color: var(--main-blue); transition: color 0.3s;">
+                                    Політика конфіденційності
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Контакти -->
+                    <div class="col-md-3 col-6">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Контакти</h4>
+                        <p>
+                            <a href="https://forms.gle/BubikRYKUbMaEMLb8" target="_blank" class="text-decoration-none"
+                                style="color: var(--main-blue);">
+                                Звернутися до нас
+                            </a>
+                        </p>
+                        <p style="color: var(--main-blue);">+38(044)338-26-53</p>
+                    </div>
+
+                    <!-- Новая колонка с картинками -->
+                    <div class="col-md-3 col-6">
+                        <h4 class="fs-5 fw-bold text-white mb-3">МИ ПОСИЛАЄМОСЯ НА</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <img src="img/moz.webp" alt="Логотип 1" class="img-fluid mb-2" style="max-width: 150px;">
+                            <img src="img/who.webp" alt="Логотип 2" class="img-fluid mb-2" style="max-width: 150px;">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </footer>
 
