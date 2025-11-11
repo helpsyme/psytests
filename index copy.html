@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPSY | Введення даних</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="shadow z-3" style="background-color: var(--header-bg) !important;">
+        <nav class="navbar navbar-expand-md py-4 navbar-dark-text">
+            <div class="container-xl px-4 px-sm-5 px-lg-4">
+                <div class="navbar-brand d-flex flex-column py-0">
+                    <span class="uk-logo">Helpsy</span>
+                    <span class="uk-logo-sub d-none d-sm-block">
+                        Підтримка вашого ментального здоров'я
+                    </span>
+                </div>
+
+                <button class="navbar-toggler p-2 rounded" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg class="h-6 w-6" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 align-items-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link btn fw-bold px-4 py-2 text-white rounded" href="#consultation"
+                                style="background-color: #39f;"> <!-- цвет логотипа -->
+                                Консультація лікаря онлайн
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1 w-100 py-5">
+        <div class="container-lg px-4 mx-auto" style="max-width: 760px;">
+
+            <section class="mt-5 mb-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 bg-white shadow-lg">
+
+
+                        <!-- Заголовок -->
+                        <header class="text-center" style="margin-top: 4rem; margin-bottom: 2rem;">
+                            <h1 class="fs-1 fw-semibold text-dark mb-4" style="letter-spacing: 0.02em;">
+                                <i class="bi bi-clipboard-check text-primary me-2"></i>Центр тестування
+                            </h1>
+                            <p class="text-muted fs-6 mx-auto"
+                                style="max-width: 700px; line-height: 1.6; margin-top: 1.5rem;">
+                                Пройдіть психологічні тести та отримайте
+                                <strong class="text-primary fw-semibold">персоналізовані результати</strong>
+                                і <strong class="text-primary fw-semibold">корисні рекомендації</strong> для підтримки
+                                вашого ментального здоров’я.
+                            </p>
+                        </header>
+
+                        <!-- Форма -->
+                        <form id="contact-form" class="mx-auto" style="max-width:700px;">
+                            <div class="row g-4">
+
+                                <div class="row g-4">
+                                    <div class="col-12">
+                                        <!-- <label for="last_name" class="form-label small">Прізвище</label> -->
+                                        <input type="text" id="last_name" name="last_name" required
+                                            class="form-control form-control-lg rounded-4" placeholder="Прізвище">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <!-- <label for="first_name" class="form-label small">Ім'я</label> -->
+                                        <input type="text" id="first_name" name="first_name" required
+                                            class="form-control form-control-lg rounded-4" placeholder="Ім'я">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <!-- <label for="email" class="form-label small">Email</label> -->
+                                        <input type="email" id="email" name="email" required
+                                            class="form-control form-control-lg rounded-4" placeholder="Email">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <!-- <label for="phone-input" class="form-label small">Телефон</label> -->
+                                        <input type="tel" id="phone-input" name="phone" required
+                                            class="form-control form-control-lg rounded-4" placeholder="Телефон">
+                                    </div>
+                                </div>
+
+                                <!-- Дата народження -->
+                                <div class="col-md-6">
+                                    <label for="dob" class="form-label small">Дата народження</label>
+                                    <input type="date" id="dob" name="dob" required
+                                        class="form-control form-control-lg rounded-4">
+                                </div>
+
+                                <!-- Стать -->
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label small">Стать</label>
+                                    <select id="gender" name="gender" required
+                                        class="form-select form-select-lg rounded-4">
+                                        <option value="" disabled selected hidden>Оберіть</option>
+                                        <option value="male">Чоловіча</option>
+                                        <option value="female">Жіноча</option>
+                                        <option value="other">Інша</option>
+                                    </select>
+                                </div>
+
+                                <!-- Що турбує -->
+                                <div class="col-12">
+                                    <label for="concern" class="form-label small">Що Вас турбує?</label>
+                                    <select id="concern" name="concern" required
+                                        class="form-select form-select-lg rounded-4">
+                                        <option value="" disabled selected hidden>Оберіть</option>
+                                        <option value="депресія">Депресія</option>
+                                        <option value="тривожність">Тривожність</option>
+                                        <option value="птср">Посттравматичний стресовий розлад (ПТСР)</option>
+                                        <option value="сдвг">СДВГ (синдром дефіциту уваги та гіперактивності)</option>
+                                        <option value="стрес">Стрес</option>
+                                        <option value="проблеми_зі_сном">Проблеми зі сном</option>
+                                        <option value="розлади_харчової_поведінки">Розлади харчової поведінки</option>
+                                        <option value="проблеми_з_алкоголем_чи_наркотиками">Проблеми з алкоголем чи
+                                            наркотиками</option>
+                                        <option value="складнощі_у_стосунках">Складнощі у стосунках</option>
+                                        <option value="низька_самооцінка">Низька самооцінка</option>
+                                        <option value="емоційне_вигорання">Синдром емоційного вигорання</option>
+                                        <option value="інше">Інше</option>
+                                    </select>
+                                </div>
+
+
+                                <!-- Вибір тесту -->
+                                <div class="col-12 my-5">
+                                    <!-- <label for="test_selector" class="form-label small">Оберіть тест</label> -->
+                                    <select id="test_type" name="test_type" required
+                                        class="form-select form-select-lg rounded-4 fw-bold test-selector-highlight">
+                                        <option value="" disabled selected hidden>⭐️ Оберіть тест</option>
+                                        <option value="PHQ9">Опитувальник з депресії PHQ-9</option>
+                                        <option value="GAD7">Опитувальник з генералізованої тривоги - GAD-7</option>
+                                        <option value="BDI2">Шкала депресії Бека (BDI-II)</option>
+                                        <option value="HADS">HADS — Госпітальна шкала тривоги та депресії</option>
+                                        <option value="BAI">Шкала тривожності Бека (BAI)</option>
+                                        <option value="BST">BST — Емоційна нестабільність та самосприйняття</option>
+                                        <option value="ASRS">ASRS — Шкала діагностики СДУГ у дорослих</option>
+                                        <option value="ITQ">ITQ - Міжнародний травматичний опитувальник</option>
+                                        
+                                    </select>
+                                </div>
+                                <!-- reCAPTCHA v2 -->
+                                <div class="col-12 my-3">
+                                    <div class="g-recaptcha" data-sitekey="6LcpofsrAAAAAMtJgSbk9pQxUf4fV7vg5wcV6-hU">
+                                    </div>
+                                </div>
+                                <!-- Согласие -->
+                                <div class="col-12 mt-4">
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="consent" name="consent"
+                                            checked disabled>
+                                        <label class="form-check-label text-secondary small" for="consent">
+                                            Я погоджуюсь з <a href="<?= appUrl ?>?page=pp"
+                                                class="text-primary text-decoration-none fw-medium">Політикою
+                                                конфіденційності</a>
+                                        </label>
+                                    </div>
+                                    <button type="submit" id="submit-button"
+                                        class="btn btn-primary btn-lg w-100 rounded-pill fw-bold py-3">
+                                        Розпочати тест
+                                    </button>
+                                </div>
+
+                                <!-- Конфиденциальность -->
+                                <div class="col-12 mt-3">
+                                    <p
+                                        class="bg-light text-muted small rounded-4 p-3 text-center d-flex align-items-center justify-content-center gap-2">
+                                        <i class="bi bi-lock-fill me-1"></i>
+                                        Конфіденційно. Ваші дані використовуються лише для надання результатів.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="statusBanner" class="mt-3 text-center fw-semibold" style="display:none;"></div>
+                </div>
+            </section>
+
+            <section class="mt-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 bg-white shadow-sm border border-light text-center">
+
+                        <!-- Заголовок -->
+                        <h2 class="text-uppercase fw-bold mb-4 text-primary">
+                            Наша гарантія якості
+                        </h2>
+
+                        <!-- Описание -->
+                        <p class="text-secondary mb-5 mx-auto" style="max-width: 650px;">
+                            На платформі <strong>HELPSY</strong> ви проходите лише
+                            <strong>перевірені та науково обґрунтовані психометричні тести</strong>,
+                            створені для точної оцінки ментального стану, рівня стресу чи якості сну.
+                        </p>
+
+                        <!-- Вертикальные карточки -->
+                        <div class="d-flex flex-column align-items-center gap-4">
+
+                            <div class="w-100" style="max-width: 650px;">
+                                <div class="p-4 rounded-4 shadow-sm border bg-light text-center">
+                                    <i class="bi bi-shield-check text-primary fs-3 mb-3"></i>
+                                    <p class="mb-0 fw-semibold">
+                                        Тести розроблені відповідно до <br>
+                                        міжнародних стандартів психодіагностики.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="w-100" style="max-width: 650px;">
+                                <div class="p-4 rounded-4 shadow-sm border bg-light text-center">
+                                    <i class="bi bi-check-circle text-primary fs-3 mb-3"></i>
+                                    <p class="mb-0 fw-semibold">
+                                        Методики підтверджені <br>
+                                        рекомендаціями МОЗ України.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="w-100" style="max-width: 650px;">
+                                <div class="p-4 rounded-4 shadow-sm border bg-light text-center">
+                                    <i class="bi bi-globe text-primary fs-3 mb-3"></i>
+                                    <p class="mb-0 fw-semibold">
+                                        Відповідають вимогам <br>
+                                        Всесвітньої організації охорони здоров’я (WHO).
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="consultation" class="mt-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 shadow-lg border-0 text-center" style="
+                background: linear-gradient(135deg, var(--main-blue) 0%, #4fa9ff 40%, #86c9ff 100%);
+                color: white;
+            ">
+
+                        <!-- Заголовок -->
+                        <h2 class="text-uppercase fw-bold mb-4" style="color: #ffffff;">
+                            Потрібна допомога спеціаліста?
+                        </h2>
+
+                        <!-- Опис -->
+                        <p class="text-light mb-5" style="max-width: 650px; margin: 0 auto; opacity: 0.9;">
+                            Поговоріть із лікарем просто зараз — без очікування, без осуду, у зручному для вас форматі.
+                        </p>
+
+                        <!-- Контактні кнопки -->
+                        <div class="d-flex flex-column align-items-center gap-3">
+
+                            <!-- Кнопка: Обрати лікаря -->
+                            <div class="w-100" style="max-width: 400px;">
+                                <a href="https://psikhiatr-onlayn.kiev.ua" target="_blank"
+                                    class="btn w-100 fw-bold fs-6 rounded-4 shadow-sm d-flex align-items-center justify-content-center gap-2"
+                                    style="
+                            background: white;
+                            color: var(--main-blue);
+                            border: none;
+                            height: 55px;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='scale(1.03)'"
+                                    onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+                                    👩‍⚕️ Обрати лікаря онлайн
+                                </a>
+                            </div>
+
+                            <!-- Кнопка: Telegram Bot -->
+                            <div class="w-100" style="max-width: 400px;">
+                                <a href="https://t.me/PsyOnlineHelpBot" target="_blank"
+                                    class="btn w-100 fw-bold fs-6 rounded-4 shadow-sm d-flex align-items-center justify-content-center gap-2"
+                                    style="
+                            background: #ffffff;
+                            color: var(--main-blue);
+                            border: none;
+                            height: 55px;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='scale(1.03)'"
+                                    onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+                                    <i class="bi bi-telegram fs-4"></i>
+                                    🤖 Записатися через чат-бота
+                                </a>
+                            </div>
+
+                            <!-- Розділювач -->
+                            <div class="d-flex align-items-center justify-content-center gap-3 mt-4 mb-2"
+                                style="opacity: 0.8;">
+                                <div style="height: 1px; width: 60px; background: rgba(255,255,255,0.6);"></div>
+                                <span class="text-white fw-semibold">або скануй QR-код телефоном</span>
+                                <div style="height: 1px; width: 60px; background: rgba(255,255,255,0.6);"></div>
+                            </div>
+
+                            <!-- QR під кнопками -->
+                            <div class="mt-3">
+                                <img src="https://psikhiatr-onlayn.kiev.ua/assets/img/qr_tg_bot.png"
+                                    alt="QR-код Telegram-бота" class="img-fluid shadow-sm border rounded-3 bg-white p-2"
+                                    style="max-width: 120px;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section class="mt-5 mb-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 bg-white shadow-sm border border-light">
+
+                        <!-- Заголовок FAQ -->
+                        <h2 class="text-center mb-5 fw-bold" style="color: var(--main-blue); font-size: 2.25rem;">
+                            Поширені запитання (FAQ)
+                        </h2>
+
+                        <!-- FAQ Аккордеон -->
+                        <div class="accordion" id="faqAccordion">
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                        aria-controls="collapseOne"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Навіщо потрібні мої дані?
+                                    </button>
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Ваші дані потрібні для <strong>персоналізації тестів</strong> та точних
+                                        рекомендацій, що відповідають вашим потребам.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Чи є результати діагнозом?
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Ні. Тести — <strong>інструменти попередньої оцінки</strong>. Вони не замінюють
+                                        консультацію лікаря, але допомагають зорієнтуватися.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h3 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Як щодо конфіденційності?
+                                    </button>
+                                </h3>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Дані обробляються відповідно до <strong>Політики конфіденційності</strong> та
+                                        використовуються лише для сервісу. Персональні дані третім особам не
+                                        передаються.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Заголовок тестов -->
+                        <h2 class="text-center mt-5 mb-4 fw-bold" style="color: var(--main-blue); font-size: 2rem;">
+                            Опис доступних тестів
+                        </h2>
+
+                        <!-- Тесты Аккордеон -->
+                        <div class="accordion" id="testsAccordion">
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h4 class="accordion-header" id="testHeadingOne">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#testCollapseOne"
+                                        aria-expanded="false" aria-controls="testCollapseOne"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Тест на ментальне здоров’я
+                                    </button>
+                                </h4>
+                                <div id="testCollapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="testHeadingOne" data-bs-parent="#testsAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Комплексний тест оцінює психоемоційне благополуччя, ознаки депресії, тривожності
+                                        та стресу. Допомагає зрозуміти, на що звернути увагу.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h4 class="accordion-header" id="testHeadingTwo">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#testCollapseTwo"
+                                        aria-expanded="false" aria-controls="testCollapseTwo"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Тест на стрес
+                                    </button>
+                                </h4>
+                                <div id="testCollapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="testHeadingTwo" data-bs-parent="#testsAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Визначає рівень стресу та здатність справлятися з ним. Допомагає зрозуміти, коли
+                                        потрібна підтримка або відпочинок.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border-0 mb-2">
+                                <h4 class="accordion-header" id="testHeadingThree">
+                                    <button class="accordion-button collapsed fw-semibold text-dark" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#testCollapseThree"
+                                        aria-expanded="false" aria-controls="testCollapseThree"
+                                        style="background-color: #e9ecef; border-radius: 1rem; transition: 0.3s;">
+                                        Тест на якість сну
+                                    </button>
+                                </h4>
+                                <div id="testCollapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="testHeadingThree" data-bs-parent="#testsAccordion">
+                                    <div class="accordion-body text-secondary">
+                                        Перевіряє гігієну сну, ознаки безсоння та інші порушення. Підкаже, чи варто
+                                        змінити режим або звернутися до фахівця.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <!-- Спиннер -->
+    <div id="loadingSpinner" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+">
+        <div style="
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+    "></div>
+    </div>
+    <footer class="bg-dark mt-auto py-5" style="background-color: var(--footer-bg) !important;">
+        <div class="container-xl px-4 px-sm-5 px-lg-4">
+            <div class="row g-4 text-sm">
+
+                <!-- Лого и описание слева -->
+                <div class="col-md-3 col-12">
+                    <span class="uk-logo d-block">Helpsy</span>
+                    <span class="uk-logo-sub d-block">Підтримка вашого ментального здоров'я</span>
+                    <p class="mt-2" style="color: var(--footer-text);">
+                        Наша місія — зробити психологічну підтримку доступною та зрозумілою для кожного.
+                    </p>
+                    <p>v.2.1</p>
+                </div>
+
+                <!-- Блоки прижаты вправо -->
+                <div class="col-md-9 d-flex justify-content-end flex-wrap gap-4">
+
+                    <!-- Допомога -->
+                    <div class="col-md-3 col-6">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Допомога</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="<?= appUrl ?>?page=pp" target="_blank" rel="noopener noreferrer"
+                                    class="text-decoration-none"
+                                    style="color: var(--main-blue); transition: color 0.3s;">
+                                    Політика конфіденційності
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Контакти -->
+                    <div class="col-md-3 col-6">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Контакти</h4>
+                        <p>
+                            <a href="https://forms.gle/BubikRYKUbMaEMLb8" target="_blank" class="text-decoration-none"
+                                style="color: var(--main-blue);">
+                                Звернутися до нас
+                            </a>
+                        </p>
+                        <p style="color: var(--main-blue);">+38(044)338-26-53</p>
+                    </div>
+
+                    <!-- Новая колонка с картинками -->
+                    <div class="col-md-3 col-6">
+                        <h4 class="fs-5 fw-bold text-white mb-3">МИ ПОСИЛАЄМОСЯ НА</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <img src="img/moz.webp" alt="Логотип 1" class="img-fluid mb-2" style="max-width: 150px;">
+                            <img src="img/who.webp" alt="Логотип 2" class="img-fluid mb-2" style="max-width: 150px;">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/inputmask/dist/inputmask.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
+    
+
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script>
+$(document).ready(function() {
+    // Маска телефона: +38 (099) 999-99-99
+    Inputmask({
+        mask: "38(999)9999999",
+        placeholder: "_",
+        showMaskOnHover: false,
+        showMaskOnFocus: true
+    }).mask("#phone-input");
+});
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+let fingerprint = "";
+
+// Получаем fingerprint
+(async () => {
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
+    fingerprint = result.visitorId;
+})();
+
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+function getUrlParams() {
+    const params = {};
+    const searchParams = new URLSearchParams(window.location.search);
+    for (const [key, value] of searchParams.entries()) {
+        params[key] = value;
+    }
+    return params;
+}
+
+$("#contact-form").on("submit", async function(e) {
+    e.preventDefault();
+    const form = this;
+    const $button = $("#submit-button");
+    const $spinner = $("#loadingSpinner");
+
+    $spinner.show();
+    $button.prop("disabled", true);
+
+    const urlParams = getUrlParams();
+    const testId = generateUUID();
+
+    const formData = new FormData(form);
+    const dataObj = {};
+    formData.forEach((value, key) => {
+        dataObj[key] = value || "";
+    });
+
+    // Добавляем служебные поля
+    dataObj["testId"] = testId;
+    dataObj["leadid"] = urlParams["leadid"] || "";
+    dataObj["test_type"] = $("#test_type").val() || "";
+    dataObj["consent"] = "on";
+    dataObj["utm_source"] = urlParams["utm_source"] || "";
+    dataObj["utm_medium"] = urlParams["utm_medium"] || "";
+    dataObj["utm_campaign"] = urlParams["utm_campaign"] || "";
+    dataObj["utm_term"] = urlParams["utm_term"] || "";
+    dataObj["utm_content"] = urlParams["utm_content"] || "";
+    dataObj["host"] = window.location.host;
+    dataObj["referer"] = document.referrer;
+    dataObj["system"] = navigator.platform;
+    dataObj["userAgent"] = navigator.userAgent;
+    dataObj["language"] = navigator.language || navigator.userLanguage;
+    dataObj["fingerprint"] = fingerprint;
+
+    // Получаем IP
+    try {
+        const ipResp = await fetch("https://api.ipify.org?format=json");
+        const ipData = await ipResp.json();
+        dataObj["user_ip"] = ipData.ip || "";
+    } catch {
+        dataObj["user_ip"] = "";
+    }
+
+    const LAMBDA_URL = "https://service.nexson.space/psytests/reg";
+
+    $.ajax({
+        url: LAMBDA_URL,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(dataObj),
+        success: function(responseText) {
+            let result;
+            try {
+                // 🔹 Если Lambda вернула JSON со строкой в body:
+                if (typeof responseText === "string") {
+                    responseText = JSON.parse(responseText);
+                }
+                result = typeof responseText.body === "string"
+                    ? JSON.parse(responseText.body)
+                    : responseText.body || responseText;
+            } catch (e) {
+                console.error("JSON parse error:", e);
+                result = { success: false, message: "Некорректный ответ сервера" };
+            }
+
+            // 🔹 Вывод результата
+            if (result.success) {
+                toastr.success(result.message || "Форма успешно отправлена", "Успех!");
+                form.reset();
+                window.location.href = "thank_you_page.html";
+            } else {
+                toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
+            }
+        },
+        error: function(xhr, status, error) {
+            toastr.error("Ошибка при отправке формы", "Ошибка!");
+            console.error("AJAX Error:", status, error);
+        },
+        complete: function() {
+            $spinner.hide();
+            $button.prop("disabled", false);
+        }
+    });
+});
+</script>
+</body>
+
+</html>

@@ -1,174 +1,100 @@
-    /* Кастомні CSS Змінні для збереження стилю */
-    :root {
-        --main-blue: #39f;
-        --dark-bg: #1b2831;
-        --light-bg: #fff;
-        --light-gray-bg: #f9fafb;
-        --secondary-text: #5b5b5b;
-        --footer-bg: #152129;
-        --footer-text: #a0aec0;
-        --header-bg: #343a40;
-        --logo-sub-text: #9ca3af;
+/* ===== Переменные CSS ===== */
+:root {
+    --main-blue: #39f;
+    --dark-bg: #1b2831;
+    --light-bg: #fff;
+    --light-gray-bg: #f9fafb;
+    --secondary-text: #5b5b5b;
+    --footer-bg: #152129;
+    --footer-text: #a0aec0;
+    --header-bg: #343a40;
+    --logo-sub-text: #9ca3af;
 
-        --bs-body-bg: var(--light-gray-bg);
-        --bs-body-color: var(--dark-bg);
-        --bs-primary: var(--main-blue);
-        --bs-font-sans-serif: 'Roboto', system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    }
+    --bs-body-bg: var(--light-gray-bg);
+    --bs-body-color: var(--dark-bg);
+    --bs-primary: var(--main-blue);
+    --bs-font-sans-serif: 'Roboto', system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+}
 
-    /* Единый шрифт для всего текста */
-    body, p, label, a, input, select, textarea, button, h1, h2, h3, h4, h5, h6 {
-        font-family: 'Roboto', sans-serif;
-    }
+/* ===== Базовые стили ===== */
+body, p, label, a, input, select, textarea, button, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--dark-bg);
+    margin: 0;
+    padding: 0;
+}
 
-    /* Стилі логотипу */
-    .uk-logo {
-        font-family: 'Roboto Condensed', sans-serif;
-        font-size: 28px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--main-blue) !important;
-        transition: color 0.3s;
-    }
+a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
 
-    .uk-logo:hover {
-        color: var(--main-blue);
-    }
+a:hover {
+    color: var(--main-blue);
+}
 
-    .uk-logo-sub {
-        font-family: 'Roboto', sans-serif;
-        font-size: 0.75rem;
-        font-weight: 300;
-        color: var(--logo-sub-text) !important;
-        margin-top: -4px;
-    }
+/* ===== Логотип ===== */
+.uk-logo {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--main-blue);
+    transition: color 0.3s;
+}
 
-    /* Тіні та радіус */
-    .shadow-soft-lg {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
+.uk-logo-sub {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--logo-sub-text);
+    margin-top: -4px;
+}
 
-    .rounded-3xl {
-        border-radius: 1.5rem !important;
-    }
+/* ===== Навигация ===== */
+.navbar-dark-text .nav-link {
+    color: rgba(255,255,255,0.75);
+    transition: color 0.3s;
+}
 
-    /* Навігація */
-    .navbar-dark-text .nav-link {
-        color: rgba(255, 255, 255, 0.75) !important;
-        font-family: 'Roboto', sans-serif;
-        transition: color 0.3s;
-    }
+.navbar-dark-text .nav-link:hover {
+    color: var(--light-bg);
+}
 
-    .navbar-dark-text .nav-link:hover {
-        color: var(--light-bg) !important;
-    }
+.navbar-toggler {
+    border: none;
+    color: var(--main-blue);
+    background-color: rgba(255,255,255,0.1);
+}
 
-    .navbar-toggler {
-        border: none;
-        color: var(--main-blue);
-        background-color: rgba(255, 255, 255, 0.1);
-        font-family: 'Roboto', sans-serif;
-    }
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(51,153,255,0.2);
+}
 
-    .navbar-toggler:focus {
-        box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.2);
-    }
+/* ===== Форма ===== */
+#contact-form input,
+#contact-form select,
+textarea {
+    border-radius: 2rem !important;
+    font-family: 'Roboto', sans-serif;
+}
 
-    /* Поля форм */
-    .form-control, .form-select, textarea {
-        font-family: 'Roboto', sans-serif;
-    }
+#contact-form button {
+    border-radius: 50px !important;
+    font-family: 'Roboto', sans-serif;
+}
 
-    .form-control:focus,
-    .form-select:focus {
-        border-color: var(--main-blue);
-        box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.2);
-    }
-
-    /* Для input и textarea */
-    input::placeholder,
-    textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: #0a0a0a;
     opacity: 1;
     font-weight: 100;
-    }
+}
 
-    /* Для select через :invalid (placeholder) */
-    select:invalid {
+select:invalid {
     color: #4a4a4a;
     font-weight: 100;
-    }
-
-    /* Акордеон */
-    .accordion-button, .accordion-button:not(.collapsed) {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        color: var(--dark-bg);
-    }
-
-    .accordion-button:focus {
-        box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.2);
-    }
-
-    .accordion-item {
-        border: 1px solid #e5e7eb;
-        border-radius: 0.5rem !important;
-    }
-
-    /* Тест-селект */
-    .test-selector-highlight {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        color: var(--dark-bg);
-        background-color: rgba(51, 153, 255, 0.08);
-        border: 1px solid var(--main-blue);
-        border-radius: 0.75rem;
-        padding: 0.75rem 1rem;
-        transition: all 0.2s ease-in-out;
-    }
-
-    .test-selector-highlight:focus {
-        background-color: rgba(51, 153, 255, 0.15);
-        border-color: var(--main-blue);
-        box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.25);
-    }
-
-    /* Кнопки */
-    button {
-        font-family: 'Roboto', sans-serif;
-    }
-    .test-selector-highlight {
-    background-color: #e0f7ff; /* светло-бирюзовый фон */
-    border: 2px solid #3b82f6; /* ярко-синяя рамка */
-    padding: 1rem 1.25rem;      /* увеличенный внутренний отступ */
-    font-size: 1.15rem;         /* крупный текст */
-    font-weight: 600;
-    color: #1e40af;             /* темно-синий текст */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* легкая тень */
-    transition: all 0.2s ease-in-out;
-}
-
-.test-selector-highlight:focus {
-    background-color: #cfeeff;   /* немного ярче при фокусе */
-    border-color: #2563eb;       /* насыщенный синий */
-    box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.25);
-    outline: none;
-}
-/* ===== Адаптивные стили для мобильных устройств ===== */
-form#testform {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-sizing: border-box;
-}
-
-.form-check-input,
-.form-control,
-textarea,
-select {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
 .form-check {
@@ -184,10 +110,135 @@ select {
 
 .form-check-label {
     flex-grow: 1;
-    font-size: 0.9rem; /* чуть меньше текст для мобильных */
+    font-size: 0.9rem;
 }
 
-/* Мобильные устройства до 576px */
+/* ===== Тест-селектор ===== */
+.test-selector-highlight {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #1e40af;
+    background-color: #e0f7ff;
+    border: 2px solid #3b82f6;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.2s ease-in-out;
+}
+
+.test-selector-highlight:focus {
+    background-color: #cfeeff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 0.25rem rgba(51,153,255,0.25);
+    outline: none;
+}
+
+/* ===== Аккордеон ===== */
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    font-weight: 600;
+    color: var(--dark-bg);
+    border-radius: 1rem !important;
+    transition: 0.3s;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(51,153,255,0.2);
+}
+
+.accordion-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem !important;
+}
+
+.accordion-body {
+    color: #6c757d;
+}
+
+/* ===== Кнопки ===== */
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
+#consultation .btn {
+    transition: all 0.3s ease;
+}
+
+#consultation .btn:hover {
+    transform: scale(1.03);
+}
+
+/* ===== QR-код ===== */
+#consultation img {
+    max-width: 120px;
+}
+
+/* ===== Вертикальные карточки ===== */
+.d-flex.flex-column.align-items-center > div > div {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* ===== Footer ===== */
+footer {
+    color: var(--footer-text);
+}
+
+footer a {
+    color: var(--main-blue);
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* ===== Спиннер ===== */
+#loadingSpinner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+#loadingSpinner > div {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== Адаптивность ===== */
+form#testform {
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.form-control,
+textarea,
+select,
+.form-check-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
 @media (max-width: 576px) {
     .mb-4 {
         margin-bottom: 1rem !important;
