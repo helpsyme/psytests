@@ -240,7 +240,9 @@ select,
     box-sizing: border-box;
 }
 
+/* ===== Мобильная адаптация отступов ===== */
 @media (max-width: 576px) {
+    /* Уменьшаем боковые отступы у контейнеров */
     .container,
     .container-lg {
         padding-left: 0.5rem !important;  /* вместо стандартных 1-1.5rem */
@@ -249,21 +251,100 @@ select,
         margin-right: auto;
     }
 
+    /* Меньше внешние отступы и паддинги для карточек / секций */
     .mb-4 {
         margin-bottom: 1rem !important;
         padding: 1rem !important;
     }
 
+    /* Уменьшаем внутренние отступы у блоков с классом p-5/p-4 */
+    .p-5 {
+        padding: 1.25rem !important;
+    }
+
+    .p-4 {
+        padding: 1rem !important;
+    }
+
+    /* Немного снижаем скругление и тень */
+    .rounded-4 {
+        border-radius: 1rem !important;
+    }
+
+    .shadow-lg {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Кнопки */
     button.btn {
         font-size: 1rem;
         padding: 0.75rem 1rem;
     }
+
+    /* Центрируем и масштабируем reCAPTCHA */
+    .g-recaptcha {
+        max-width: 100%;
+        transform: scale(0.9);
+        transform-origin: 0 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
 }
 
-/* Ограничение ширины reCAPTCHA и центрирование */
-.g-recaptcha {
-    max-width: 100%;   /* не больше родителя */
-    transform: scale(0.9); /* при необходимости уменьшить */
-    transform-origin: 0 0; /* масштабировать от левого верхнего угла */
-    margin: 0 auto;    /* центрирование */
+footer {
+  background-color: var(--footer-bg) !important;
+  color: var(--footer-text);
+}
+
+footer .footer-link {
+  color: var(--main-blue);
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+footer .footer-link:hover {
+  color: #fff;
+}
+
+footer .text-footer {
+  color: var(--footer-text);
+}
+
+.footer-logo {
+  max-width: 150px;
+}
+
+/* ===== Мобильная адаптация футера ===== */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  footer .col-md-9 {
+    justify-content: center !important;
+  }
+
+  footer .col-md-3,
+  footer .col-6,
+  footer .col-12 {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .footer-logo {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  footer h4 {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  footer p,
+  footer a {
+    font-size: 0.9rem;
+  }
 }
