@@ -241,6 +241,14 @@ select,
 }
 
 @media (max-width: 576px) {
+    .container,
+    .container-lg {
+        padding-left: 0.5rem !important;  /* вместо стандартных 1-1.5rem */
+        padding-right: 0.5rem !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .mb-4 {
         margin-bottom: 1rem !important;
         padding: 1rem !important;
@@ -252,13 +260,10 @@ select,
     }
 }
 
-/* Уменьшаем горизонтальные отступы на мобильных */
-@media (max-width: 576px) {
-    .container,
-    .container-lg {
-        padding-left: 0.5rem !important;  /* вместо стандартных 1-1.5rem */
-        padding-right: 0.5rem !important;
-        margin-left: auto;
-        margin-right: auto;
-    }
+/* Ограничение ширины reCAPTCHA и центрирование */
+.g-recaptcha {
+    max-width: 100%;   /* не больше родителя */
+    transform: scale(0.9); /* при необходимости уменьшить */
+    transform-origin: 0 0; /* масштабировать от левого верхнего угла */
+    margin: 0 auto;    /* центрирование */
 }
