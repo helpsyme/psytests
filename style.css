@@ -197,18 +197,18 @@ footer a:hover {
 }
 
 /* ===== Спиннер ===== */
+/* CSS */
 #loadingSpinner {
     display: none;       /* скрыт по умолчанию */
-    position: fixed;     /* фиксируем на экране */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;        /* полная ширина окна */
-    height: 100vh;       /* полная высота окна */
-    background: rgba(0, 0, 0, 0.4); /* затемнение */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 9999;
     justify-content: center;
     align-items: center;
-    display: flex;       /* flex для центрирования */
 }
 
 #loadingSpinner div {

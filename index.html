@@ -403,7 +403,7 @@
         });
     </script>
 
-    <script>
+   <script>
 let fingerprint = "";
 
 // Получаем fingerprint
@@ -430,13 +430,22 @@ function getUrlParams() {
     return params;
 }
 
+function showSpinner() {
+    const spinner = document.getElementById("loadingSpinner");
+    spinner.style.display = "flex";
+}
+
+function hideSpinner() {
+    const spinner = document.getElementById("loadingSpinner");
+    spinner.style.display = "none";
+}
+
 $("#contact-form").on("submit", async function(e) {
     e.preventDefault();
     const form = this;
     const $button = $("#submit-button");
-    const $spinner = $("#loadingSpinner");
 
-    $spinner.show();
+    showSpinner();
     $button.prop("disabled", true);
 
     const urlParams = getUrlParams();
@@ -484,19 +493,15 @@ $("#contact-form").on("submit", async function(e) {
         success: function(responseText) {
             let result;
             try {
-                // 🔹 Если Lambda вернула JSON со строкой в body:
-                if (typeof responseText === "string") {
-                    responseText = JSON.parse(responseText);
-                }
+                if (typeof responseText === "string") responseText = JSON.parse(responseText);
                 result = typeof responseText.body === "string"
                     ? JSON.parse(responseText.body)
                     : responseText.body || responseText;
-            } catch (e) {
-                console.error("JSON parse error:", e);
+            } catch {
+                console.error("JSON parse error");
                 result = { success: false, message: "Некорректный ответ сервера" };
             }
 
-            // 🔹 Вывод результата
             if (result.success) {
                 toastr.success(result.message || "Форма успешно отправлена", "Успех!");
                 form.reset();
@@ -510,7 +515,7 @@ $("#contact-form").on("submit", async function(e) {
             console.error("AJAX Error:", status, error);
         },
         complete: function() {
-            $spinner.hide();
+            hideSpinner();
             $button.prop("disabled", false);
         }
     });
