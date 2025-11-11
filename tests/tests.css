@@ -261,3 +261,53 @@ button {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Общие адаптивные отступы для формы */
+form#testform {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+/* Инпуты и радиокнопки растягиваются на ширину контейнера */
+.form-check-input,
+.form-control,
+textarea,
+select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Мобильные устройства: убираем лишние внешние отступы у вопросов */
+@media (max-width: 576px) {
+    .mb-4 {
+        margin-bottom: 1rem !important;
+        padding: 1rem !important;
+    }
+
+    .form-check-label {
+        font-size: 0.9rem; /* чуть меньше текст, чтобы помещалось */
+    }
+
+    button.btn {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Радиокнопки: растягиваем лейблы */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+}
+
+.form-check-label {
+    flex-grow: 1;
+}
