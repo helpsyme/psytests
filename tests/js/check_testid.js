@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
 
     } catch (error) {
-        console.error("Ошибка проверки testid:", error);
+        alert("Ошибка проверки testid: " + error);
         window.location.href = "/404.html";
         return;
     } finally {
