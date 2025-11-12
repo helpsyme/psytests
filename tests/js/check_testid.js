@@ -32,16 +32,17 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         // API возвращает { body: '{"valid":true}' } 
         const data = JSON.parse(result.body);
-
+        alert("data: " + data);
         // Проверка валидности
         if (!data.valid) {
-            window.location.href = "/404.html";
+
+            // window.location.href = "/404.html";
             return;
         }
 
     } catch (error) {
         alert("Ошибка проверки testid: " + error);
-        window.location.href = "/404.html";
+        // window.location.href = "/404.html";
         return;
     } finally {
         hideSpinner();
