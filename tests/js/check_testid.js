@@ -19,13 +19,20 @@ document.addEventListener("DOMContentLoaded", async function() {
     showSpinner();
 
     try {
-        // Запрос на API для проверки testid
-        const response = await fetch(`https://service.nexson.space/psytests/check_testid?testid=${encodeURIComponent(testid)}`);
+        // POST-запрос на API
+        const response = await fetch("https://service.nexson.space/psytests/check_testid", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ testid: testid })
+        });
+
         const result = await response.json();
 
-
+        // API возвращает { body: '{"valid":true}' } 
         const data = JSON.parse(result.body);
-        alert("data: " + data);
+
         // Проверка валидности
         if (!data.valid) {
             window.location.href = "/404.html";
