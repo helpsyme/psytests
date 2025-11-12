@@ -19,32 +19,39 @@ document.addEventListener("DOMContentLoaded", async function() {
     showSpinner();
 
     try {
-        // POST-запрос на API
-        const response = await fetch("https://service.nexson.space/psytests/check_testid", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ testid: testid })
-        });
+    console.log("Отправка POST-запроса на проверку testid:", testid);
 
-        const result = await response.json();
+    // POST-запрос на API
+    const response = await fetch("https://service.nexson.space/psytests/check_testid", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ testid: testid })
+    });
 
-        // API возвращает { body: '{"valid":true}' } 
-        const data = JSON.parse(result.body);
-        alert("data: " + data);
-        // Проверка валидности
-        if (!data.valid) {
+    console.log("Ответ от fetch:", response);
 
-            // window.location.href = "/404.html";
-            return;
-        }
+    const result = await response.json();
+    console.log("Распарсенный JSON от API:", result);
 
-    } catch (error) {
-        alert("Ошибка проверки testid: " + error);
+    // API возвращает { body: '{"valid":true}' } 
+    const data = JSON.parse(result.body);
+    console.log("Распарсенный body:", data);
+
+    // Проверка валидности
+    if (!data.valid) {
+        console.warn("TestID не валиден:", testid);
         // window.location.href = "/404.html";
         return;
-    } finally {
-        hideSpinner();
     }
+
+    console.log("TestID валиден:", testid);
+
+} catch (error) {
+    console.error("Ошибка проверки testid:", error);
+    // window.location.href = "/404.html";
+} finally {
+    hideSpinner();
+}
 });
