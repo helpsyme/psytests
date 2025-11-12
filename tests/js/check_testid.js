@@ -7,7 +7,7 @@ function getUrlParams() {
     return params;
 }
 
-document.addEventListener("DOMContentLoaded", async function() {
+$(document).ready(function() {
     const urlParams = getUrlParams();
     const testid = urlParams["testid"];
 
@@ -19,53 +19,43 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     showSpinner();
 
-    try {
-        console.log("Отправка POST-запроса на проверку testid:", testid);
+    console.log("Отправка POST-запроса на проверку testid:", testid);
 
-        // POST-запрос на API
-        const response = await fetch("https://service.nexson.space/psytests/check_testid", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ testid }),
-            mode: "cors", // включаем CORS
-            credentials: "omit" // если cookies не нужны
-        });
+    $.ajax({
+        url: "https://service.nexson.space/psytests/check_testid",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ testid: testid }),
+        success: function(response) {
+            console.log("Ответ от API:", response);
 
-        console.log("Ответ от fetch:", response);
+            let data;
+            try {
+                data = typeof response.body === "string" ? JSON.parse(response.body) : response.body;
+            } catch (err) {
+                console.error("Ошибка парсинга body:", err, response);
+                alert("Ошибка обработки ответа от сервера");
+                window.location.href = "/404.html";
+                return;
+            }
 
-        if (!response.ok) {
-            throw new Error(`HTTP ошибка: ${response.status}`);
-        }
+            console.log("Распарсенный body:", data);
 
-        const result = await response.json();
-        console.log("Распарсенный JSON от API:", result);
+            if (!data.valid) {
+                console.warn("TestID не валиден:", testid);
+                window.location.href = "/404.html";
+                return;
+            }
 
-        // API возвращает { body: '{"valid":true}' } 
-        let data;
-        try {
-            data = JSON.parse(result.body);
-        } catch (parseError) {
-            console.error("Ошибка парсинга body:", parseError, result.body);
-            throw parseError;
-        }
-        console.log("Распарсенный body:", data);
-
-        // Проверка валидности
-        if (!data.valid) {
-            console.warn("TestID не валиден:", testid);
+            console.log("TestID валиден:", testid);
+        },
+        error: function(xhr, status, error) {
+            console.error("Ошибка проверки testid:", status, error, xhr.responseText);
+            alert("Ошибка проверки testid. Подробности в консоли.");
             window.location.href = "/404.html";
-            return;
+        },
+        complete: function() {
+            hideSpinner();
         }
-
-        console.log("TestID валиден:", testid);
-
-    } catch (error) {
-        console.error("Ошибка проверки testid:", error);
-        alert("Ошибка проверки testid. Подробности в консоли.");
-        window.location.href = "/404.html";
-    } finally {
-        hideSpinner();
-    }
+    });
 });
