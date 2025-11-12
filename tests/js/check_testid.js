@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
 
         const data = JSON.parse(result.body);
-
+        alert("data: " + data);
         // Проверка валидности
         if (!data.valid) {
             window.location.href = "/404.html";
