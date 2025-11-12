@@ -231,13 +231,24 @@ form#testform {
     box-sizing: border-box;
 }
 
+/* ===== Поля формы, textarea, select остаются шириной 100% ===== */
 .form-control,
 textarea,
-select,
-.form-check-input {
+select {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+}
+
+/* ===== Радиокнопки и чекбоксы стандартного вида ===== */
+.form-check-input {
+    width: 1.25em;       /* стандартный размер радиокруга */
+    height: 1.25em;      /* соответствует ширине */
+    flex-shrink: 0;      /* не сжимается */
+    margin-right: 0.5rem;/* отступ от текста */
+    appearance: radio;   /* гарантирует стандартный вид */
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
 }
 
 /* ===== Мобильная адаптация отступов ===== */
@@ -348,3 +359,37 @@ footer .text-footer {
     font-size: 0.9rem;
   }
 }
+
+/* TESTS */
+/* ===== Блок вопроса ===== */
+.question-block {
+    background-color: #f8faff;
+    border-left: 4px solid var(--main-blue);
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem; /* сверху/снизу и слева/справа */
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Радиокнопки ===== */
+.question-block .form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* расстояние между радио и текстом */
+    margin-bottom: 0.75rem; /* отступ между вариантами */
+}
+
+.question-block .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+    appearance: radio;
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+}
+
+.question-block .form-check-label {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    margin: 0; /* убираем лишние маргины */
+}
+
