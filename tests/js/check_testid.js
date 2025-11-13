@@ -35,7 +35,7 @@ $(document).ready(function() {
             } catch (err) {
                 console.error("Ошибка парсинга body:", err, response);
                 alert("Ошибка обработки ответа от сервера");
-                // window.location.href = "/404.html";
+                window.location.href = "/404.html";
                 return;
             }
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
 
             if (!data.valid) {
                 console.warn("TestID не валиден:", testid);
-                // window.location.href = "/404.html";
+                window.location.href = "/404.html";
                 return;
             }
 
@@ -52,7 +52,7 @@ $(document).ready(function() {
         error: function(xhr, status, error) {
             console.error("Ошибка проверки testid:", status, error, xhr.responseText);
             alert("Ошибка проверки testid. Подробности в консоли.");
-            // window.location.href = "/404.html";
+            window.location.href = "/404.html";
         },
         complete: function() {
             hideSpinner();
