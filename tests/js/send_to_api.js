@@ -74,77 +74,60 @@ $(document).ready(function() {
             type: "GET",
             success: function(ipRes) {
                 meta.ip = ipRes.ip || "";
-                console.log("Полученный IP:", meta.ip);
-
-                const payload = { ...formData, ...meta };
-                console.log("Payload для отправки на Lambda:", payload);
-
-                $.ajax({
-                    url: "https://service.nexson.space/psytests/send_test_data",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(payload),
-                    success: function(response) {
-                        console.log("Ответ от Lambda:", response);
-                        let result;
-                        try {
-                            if (typeof response === "string") response = JSON.parse(response);
-                            result = typeof response.body === "string"
-                                ? JSON.parse(response.body)
-                                : response.body || response;
-                        } catch (err) {
-                            console.error("Ошибка парсинга ответа:", err, response);
-                            result = { success: false, message: "Некорректный ответ сервера" };
-                        }
-
-                        console.log("Распарсенный результат:", result);
-
-                        if (result.success) {
-                            toastr.success(result.message || "Форма успешно отправлена", "Успех!");
-                            form.reset();
-                            window.location.href = "/thank_you_page.html";
-                        } else {
-                            toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        toastr.error("Ошибка при отправке формы", "Ошибка!");
-                        console.error("AJAX Error:", status, error, xhr.responseText);
-                    },
-                    complete: function() {
-                        hideSpinner();
-                        $button.prop("disabled", false);
-                    }
-                });
+                sendPayload(form, $button, formData, meta);
             },
             error: function(err) {
                 console.warn("Не удалось получить IP", err);
                 meta.ip = "";
-
-                const payload = { ...formData, ...meta };
-                console.log("Payload без IP:", payload);
-
-                $.ajax({
-                    url: "https://service.nexson.space/psytests/send_test_data",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(payload),
-                    success: function(response) {
-                        console.log("Ответ от Lambda (без IP):", response);
-                        toastr.success("Форма отправлена без IP", "Успех!");
-                        form.reset();
-                        window.location.href = "/thank_you_page.html";
-                    },
-                    error: function(xhr, status, error) {
-                        toastr.error("Ошибка при отправке формы", "Ошибка!");
-                        console.error("AJAX Error (без IP):", status, error, xhr.responseText);
-                    },
-                    complete: function() {
-                        hideSpinner();
-                        $button.prop("disabled", false);
-                    }
-                });
+                sendPayload(form, $button, formData, meta);
             }
         });
     });
 });
+
+// === Функция отправки данных на Lambda ===
+function sendPayload(form, $button, formData, meta) {
+    const payload = { ...formData, ...meta };
+    console.log("Payload для отправки:", payload);
+
+    $.ajax({
+        url: "https://service.nexson.space/psytests/send_test_data",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(payload),
+        success: function(response) {
+            console.log("Ответ от Lambda:", response);
+
+            let result;
+            try {
+                if (typeof response === "string") response = JSON.parse(response);
+                result = typeof response.body === "string" ? JSON.parse(response.body) : response.body || response;
+            } catch (err) {
+                console.error("Ошибка парсинга ответа:", err, response);
+                result = { success: false, message: "Некорректный ответ сервера" };
+            }
+
+            console.log("Распарсенный результат:", result);
+
+            if (result.success) {
+                toastr.success(result.data.message || "Форма успешно отправлена", "Успех!");
+                form.reset();
+
+                // --- Редирект после небольшой задержки, чтобы toastr успел показать уведомление ---
+                setTimeout(() => {
+                    window.location.href = "/result_page.html";
+                }, 500);
+            } else {
+                toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
+            }
+        },
+        error: function(xhr, status, error) {
+            toastr.error("Ошибка при отправке формы", "Ошибка!");
+            console.error("AJAX Error:", status, error, xhr.responseText);
+        },
+        complete: function() {
+            hideSpinner();
+            $button.prop("disabled", false);
+        }
+    });
+}
