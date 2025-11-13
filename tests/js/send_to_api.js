@@ -1,4 +1,3 @@
-
 let fingerprint = "";
 
 // === Инициализация FingerprintJS ===
@@ -6,6 +5,7 @@ let fingerprint = "";
     const fp = await FingerprintJS.load();
     const result = await fp.get();
     fingerprint = result.visitorId;
+    console.log("FingerprintJS visitorId:", fingerprint);
 })();
 
 // === Генерация UUID ===
@@ -24,6 +24,7 @@ function getUrlParams() {
     for (const [key, value] of searchParams.entries()) {
         params[key] = value;
     }
+    console.log("URL параметры:", params);
     return params;
 }
 
@@ -37,15 +38,16 @@ $(document).ready(function() {
         showSpinner();
         $button.prop("disabled", true);
 
-        // --- Получаем параметры из URL ---
         const urlParams = getUrlParams();
         const testid = urlParams["testid"] || generateUUID();
+        console.log("Используемый testid:", testid);
 
         // --- Сбор данных формы ---
         const formData = {};
         for (let i = 1; i <= 18; i++) {
             formData[`q${i}`] = $(`input[name="q${i}"]:checked`, form).val() || "";
         }
+        console.log("Данные формы:", formData);
 
         // --- Метаданные ---
         const meta = {
@@ -64,25 +66,26 @@ $(document).ready(function() {
             utm_term: urlParams["utm_term"] || "",
             utm_content: urlParams["utm_content"] || ""
         };
+        console.log("Метаданные:", meta);
 
-        // --- Сначала получаем IP, потом шлём форму ---
+        // --- Получаем IP, потом отправляем форму ---
         $.ajax({
             url: "https://api.ipify.org?format=json",
             type: "GET",
             success: function(ipRes) {
                 meta.ip = ipRes.ip || "";
+                console.log("Полученный IP:", meta.ip);
 
                 const payload = { ...formData, ...meta };
+                console.log("Payload для отправки на Lambda:", payload);
 
-                console.log("Отправка данных формы:", payload);
-
-                // --- Отправляем данные на Lambda ---
                 $.ajax({
                     url: "https://service.nexson.space/psytests/send_test_data",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(payload),
                     success: function(response) {
+                        console.log("Ответ от Lambda:", response);
                         let result;
                         try {
                             if (typeof response === "string") response = JSON.parse(response);
@@ -94,10 +97,12 @@ $(document).ready(function() {
                             result = { success: false, message: "Некорректный ответ сервера" };
                         }
 
+                        console.log("Распарсенный результат:", result);
+
                         if (result.success) {
                             toastr.success(result.message || "Форма успешно отправлена", "Успех!");
                             form.reset();
-                            window.location.href = "/thank_you_page.html"; // своя страница
+                            window.location.href = "/thank_you_page.html";
                         } else {
                             toastr.error(result.message || "Ошибка при отправке", "Ошибка!");
                         }
@@ -112,11 +117,12 @@ $(document).ready(function() {
                     }
                 });
             },
-            error: function() {
-                console.warn("Не удалось получить IP");
+            error: function(err) {
+                console.warn("Не удалось получить IP", err);
                 meta.ip = "";
 
                 const payload = { ...formData, ...meta };
+                console.log("Payload без IP:", payload);
 
                 $.ajax({
                     url: "https://service.nexson.space/psytests/send_test_data",
@@ -124,13 +130,14 @@ $(document).ready(function() {
                     contentType: "application/json",
                     data: JSON.stringify(payload),
                     success: function(response) {
+                        console.log("Ответ от Lambda (без IP):", response);
                         toastr.success("Форма отправлена без IP", "Успех!");
                         form.reset();
                         window.location.href = "/thank_you_page.html";
                     },
                     error: function(xhr, status, error) {
                         toastr.error("Ошибка при отправке формы", "Ошибка!");
-                        console.error("AJAX Error:", status, error, xhr.responseText);
+                        console.error("AJAX Error (без IP):", status, error, xhr.responseText);
                     },
                     complete: function() {
                         hideSpinner();
