@@ -30,7 +30,7 @@ function getUrlParams() {
 
 // === Обработка отправки формы ===
 $(document).ready(function() {
-    $("#testform").on("submit", function(e) {
+    $("#form").on("submit", function(e) {
         e.preventDefault();
 
         const form = this;
