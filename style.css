@@ -199,16 +199,27 @@ footer a:hover {
 /* ===== Спиннер ===== */
 /* CSS */
 #loadingSpinner {
-    display: none;       /* скрыт по умолчанию */
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.602);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 9999;
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Для анимации */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Когда спиннер активен */
+#loadingSpinner.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 #loadingSpinner div {
