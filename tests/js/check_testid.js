@@ -46,7 +46,7 @@ $(document).ready(function() {
                 window.location.href = "/404.html";
                 return;
             }
-
+            $("#main_block").show(); 
             console.log("TestID валиден:", testid);
         },
         error: function(xhr, status, error) {
