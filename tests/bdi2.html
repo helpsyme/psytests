@@ -67,7 +67,7 @@
                         <!-- Заголовок -->
                         <header class="text-center mb-5">
                             <h1 class="fs-1 fw-bold text-dark mb-3" style="letter-spacing: 0.02em;">
-                                <i class="bi bi-clipboard-check text-primary me-2"></i>Шкала депресії Бека (BDI-II)
+                                <i class="bi bi-clipboard-check text-primary me-2"></i>Шкала депресії Бека
                             </h1>
                             <div class="mx-auto"
                                 style="width: 80px; height: 4px; background-color: #39f; border-radius: 2px;"></div>
@@ -111,449 +111,572 @@
 
                         <form id="form" name="form" class="mt-4">
 
-                            <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">1. Настрій та Сум</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q1" value="0" id="q1_0" required>
-            <label class="form-check-label text-secondary" for="q1_0">Я не відчуваю смутку чи пригніченості.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q1" value="1" id="q1_1">
-            <label class="form-check-label text-secondary" for="q1_1">Значну частину часу мені сумно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q1" value="2" id="q1_2">
-            <label class="form-check-label text-secondary" for="q1_2">Я постійно відчуваю сум та пригніченість.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q1" value="3" id="q1_3">
-            <label class="form-check-label text-secondary" for="q1_3">Я відчуваю нестерпний і нездоланний сум, тугу.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Настрій та Сум</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q1" value="0" id="q1_0" required>
+                                    <label class="form-check-label text-secondary" for="q1_0">Я не відчуваю смутку чи
+                                        пригніченості.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q1" value="1" id="q1_1">
+                                    <label class="form-check-label text-secondary" for="q1_1">Значну частину часу мені
+                                        сумно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q1" value="2" id="q1_2">
+                                    <label class="form-check-label text-secondary" for="q1_2">Я постійно відчуваю сум та
+                                        пригніченість.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" value="3" id="q1_3">
+                                    <label class="form-check-label text-secondary" for="q1_3">Я відчуваю нестерпний і
+                                        нездоланний сум, тугу.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">2. Відчуття покарання</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q2" value="0" id="q2_0" required>
-            <label class="form-check-label text-secondary" for="q2_0">Я не відчуваю, що заслуговую на покарання.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q2" value="1" id="q2_1">
-            <label class="form-check-label text-secondary" for="q2_1">Я допускаю, що можу бути покараний.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q2" value="2" id="q2_2">
-            <label class="form-check-label text-secondary" for="q2_2">Я вважаю, що мене потрібно покарати.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q2" value="3" id="q2_3">
-            <label class="form-check-label text-secondary" for="q2_3">Я відчуваю, що мене карає доля чи обставини.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Відчуття покарання</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q2" value="0" id="q2_0" required>
+                                    <label class="form-check-label text-secondary" for="q2_0">Я не відчуваю, що
+                                        заслуговую на покарання.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q2" value="1" id="q2_1">
+                                    <label class="form-check-label text-secondary" for="q2_1">Я допускаю, що можу бути
+                                        покараний.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q2" value="2" id="q2_2">
+                                    <label class="form-check-label text-secondary" for="q2_2">Я вважаю, що мене потрібно
+                                        покарати.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" value="3" id="q2_3">
+                                    <label class="form-check-label text-secondary" for="q2_3">Я відчуваю, що мене карає
+                                        доля чи обставини.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">3. Ставлення до майбутнього</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q3" value="0" id="q3_0" required>
-            <label class="form-check-label text-secondary" for="q3_0">Я спокійно дивлюся в майбутнє.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q3" value="1" id="q3_1">
-            <label class="form-check-label text-secondary" for="q3_1">Думки про майбутнє викликають у мене більше занепокоєння, ніж раніше.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q3" value="2" id="q3_2">
-            <label class="form-check-label text-secondary" for="q3_2">Мені нема чого чекати від майбутнього і ні на що сподіватися.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q3" value="3" id="q3_3">
-            <label class="form-check-label text-secondary" for="q3_3">Я відчуваю, що в моєму майбутньому немає нічого доброго, і я нічого не можу змінити.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Ставлення до майбутнього</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q3" value="0" id="q3_0" required>
+                                    <label class="form-check-label text-secondary" for="q3_0">Я спокійно дивлюся в
+                                        майбутнє.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q3" value="1" id="q3_1">
+                                    <label class="form-check-label text-secondary" for="q3_1">Думки про майбутнє
+                                        викликають у мене більше занепокоєння, ніж раніше.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q3" value="2" id="q3_2">
+                                    <label class="form-check-label text-secondary" for="q3_2">Мені нема чого чекати від
+                                        майбутнього і ні на що сподіватися.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" value="3" id="q3_3">
+                                    <label class="form-check-label text-secondary" for="q3_3">Я відчуваю, що в моєму
+                                        майбутньому немає нічого доброго, і я нічого не можу змінити.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">4. Відчуття невдачі</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q4" value="0" id="q4_0" required>
-            <label class="form-check-label text-secondary" for="q4_0">Я не вважаю себе невдахою.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q4" value="1" id="q4_1">
-            <label class="form-check-label text-secondary" for="q4_1">Я думаю, що мав би менше зазнавати невдач у минулому.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q4" value="2" id="q4_2">
-            <label class="form-check-label text-secondary" for="q4_2">Моє життя – це суцільна низка невдач та помилок.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q4" value="3" id="q4_3">
-            <label class="form-check-label text-secondary" for="q4_3">Я відчуваю себе абсолютним невдахою в усіх сферах життя.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Відчуття невдачі</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q4" value="0" id="q4_0" required>
+                                    <label class="form-check-label text-secondary" for="q4_0">Я не вважаю себе
+                                        невдахою.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q4" value="1" id="q4_1">
+                                    <label class="form-check-label text-secondary" for="q4_1">Я думаю, що мав би менше
+                                        зазнавати невдач у минулому.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q4" value="2" id="q4_2">
+                                    <label class="form-check-label text-secondary" for="q4_2">Моє життя – це суцільна
+                                        низка невдач та помилок.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" value="3" id="q4_3">
+                                    <label class="form-check-label text-secondary" for="q4_3">Я відчуваю себе абсолютним
+                                        невдахою в усіх сферах життя.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">5. Впевненість у собі та Самооцінка</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q5" value="0" id="q5_0" required>
-            <label class="form-check-label text-secondary" for="q5_0">Я задоволений тим, ким я є.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q5" value="1" id="q5_1">
-            <label class="form-check-label text-secondary" for="q5_1">Я втратив впевненість у собі.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q5" value="2" id="q5_2">
-            <label class="form-check-label text-secondary" for="q5_2">Я розчарований у собі.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q5" value="3" id="q5_3">
-            <label class="form-check-label text-secondary" for="q5_3">Я відчуваю ненависть до себе.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Впевненість у собі та Самооцінка</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q5" value="0" id="q5_0" required>
+                                    <label class="form-check-label text-secondary" for="q5_0">Я задоволений тим, ким я
+                                        є.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q5" value="1" id="q5_1">
+                                    <label class="form-check-label text-secondary" for="q5_1">Я втратив впевненість у
+                                        собі.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q5" value="2" id="q5_2">
+                                    <label class="form-check-label text-secondary" for="q5_2">Я розчарований у
+                                        собі.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" value="3" id="q5_3">
+                                    <label class="form-check-label text-secondary" for="q5_3">Я відчуваю ненависть до
+                                        себе.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">6. Втрата задоволення (Ангедонія)</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q6" value="0" id="q6_0" required>
-            <label class="form-check-label text-secondary" for="q6_0">Я отримую задоволення від улюблених справ і речей.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q6" value="1" id="q6_1">
-            <label class="form-check-label text-secondary" for="q6_1">Я отримую менше задоволення від того, що раніше мене тішило.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q6" value="2" id="q6_2">
-            <label class="form-check-label text-secondary" for="q6_2">Я отримую дуже мало задоволення від того, що зазвичай мене радувало.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q6" value="3" id="q6_3">
-            <label class="form-check-label text-secondary" for="q6_3">Я взагалі не можу отримати задоволення від будь-якої діяльності.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Втрата задоволення (Ангедонія)</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q6" value="0" id="q6_0" required>
+                                    <label class="form-check-label text-secondary" for="q6_0">Я отримую задоволення від
+                                        улюблених справ і речей.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q6" value="1" id="q6_1">
+                                    <label class="form-check-label text-secondary" for="q6_1">Я отримую менше
+                                        задоволення від того, що раніше мене тішило.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q6" value="2" id="q6_2">
+                                    <label class="form-check-label text-secondary" for="q6_2">Я отримую дуже мало
+                                        задоволення від того, що зазвичай мене радувало.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q6" value="3" id="q6_3">
+                                    <label class="form-check-label text-secondary" for="q6_3">Я взагалі не можу отримати
+                                        задоволення від будь-якої діяльності.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">7. Самокритика</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q7" value="0" id="q7_0" required>
-            <label class="form-check-label text-secondary" for="q7_0">Я критикую себе не більше, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q7" value="1" id="q7_1">
-            <label class="form-check-label text-secondary" for="q7_1">Я більш критичний до себе, ніж звичайно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q7" value="2" id="q7_2">
-            <label class="form-check-label text-secondary" for="q7_2">Я критикую себе за всі мої помилки.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q7" value="3" id="q7_3">
-            <label class="form-check-label text-secondary" for="q7_3">Я звинувачую себе у всьому поганому, що трапляється.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Самокритика</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q7" value="0" id="q7_0" required>
+                                    <label class="form-check-label text-secondary" for="q7_0">Я критикую себе не більше,
+                                        ніж зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q7" value="1" id="q7_1">
+                                    <label class="form-check-label text-secondary" for="q7_1">Я більш критичний до себе,
+                                        ніж звичайно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q7" value="2" id="q7_2">
+                                    <label class="form-check-label text-secondary" for="q7_2">Я критикую себе за всі мої
+                                        помилки.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q7" value="3" id="q7_3">
+                                    <label class="form-check-label text-secondary" for="q7_3">Я звинувачую себе у всьому
+                                        поганому, що трапляється.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">8. Почуття провини</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q8" value="0" id="q8_0" required>
-            <label class="form-check-label text-secondary" for="q8_0">Я не відчуваю почуття провини.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q8" value="1" id="q8_1">
-            <label class="form-check-label text-secondary" for="q8_1">Я відчуваю провину за багато речей, які зробив.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q8" value="2" id="q8_2">
-            <label class="form-check-label text-secondary" for="q8_2">Я часто відчуваю себе поганою людиною, і мене мучить провина.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q8" value="3" id="q8_3">
-            <label class="form-check-label text-secondary" for="q8_3">Мене мучить постійне, нестерпне відчуття провини.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Почуття провини</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q8" value="0" id="q8_0" required>
+                                    <label class="form-check-label text-secondary" for="q8_0">Я не відчуваю почуття
+                                        провини.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q8" value="1" id="q8_1">
+                                    <label class="form-check-label text-secondary" for="q8_1">Я відчуваю провину за
+                                        багато речей, які зробив.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q8" value="2" id="q8_2">
+                                    <label class="form-check-label text-secondary" for="q8_2">Я часто відчуваю себе
+                                        поганою людиною, і мене мучить провина.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q8" value="3" id="q8_3">
+                                    <label class="form-check-label text-secondary" for="q8_3">Мене мучить постійне,
+                                        нестерпне відчуття провини.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">9. Думки про самогубство</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q9" value="0" id="q9_0" required>
-            <label class="form-check-label text-secondary" for="q9_0">У мене не виникає думок про самогубство.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q9" value="1" id="q9_1">
-            <label class="form-check-label text-secondary" for="q9_1">У мене бувають думки про самогубство, але я не планую цього робити.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q9" value="2" id="q9_2">
-            <label class="form-check-label text-secondary" for="q9_2">Я хочу померти і розглядаю можливість самогубства.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q9" value="3" id="q9_3">
-            <label class="form-check-label text-secondary" for="q9_3">Я б скоїв самогубство, якби мав нагоду.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Думки про самогубство</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q9" value="0" id="q9_0" required>
+                                    <label class="form-check-label text-secondary" for="q9_0">У мене не виникає думок
+                                        про самогубство.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q9" value="1" id="q9_1">
+                                    <label class="form-check-label text-secondary" for="q9_1">У мене бувають думки про
+                                        самогубство, але я не планую цього робити.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q9" value="2" id="q9_2">
+                                    <label class="form-check-label text-secondary" for="q9_2">Я хочу померти і розглядаю
+                                        можливість самогубства.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q9" value="3" id="q9_3">
+                                    <label class="form-check-label text-secondary" for="q9_3">Я б скоїв самогубство,
+                                        якби мав нагоду.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">10. Тривога та Психомоторне збудження</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q10" value="0" id="q10_0" required>
-            <label class="form-check-label text-secondary" for="q10_0">Я не більш неспокійний чи збуджений, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q10" value="1" id="q10_1">
-            <label class="form-check-label text-secondary" for="q10_1">Я відчуваю більше занепокоєння та збудження, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q10" value="2" id="q10_2">
-            <label class="form-check-label text-secondary" for="q10_2">Я відчуваю таке збудження, що мені важко всидіти на місці.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q10" value="3" id="q10_3">
-            <label class="form-check-label text-secondary" for="q10_3">Я змушений постійно рухатися через сильне збудження/неспокій.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Тривога та Психомоторне збудження</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q10" value="0" id="q10_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q10_0">Я не більш неспокійний чи
+                                        збуджений, ніж зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q10" value="1" id="q10_1">
+                                    <label class="form-check-label text-secondary" for="q10_1">Я відчуваю більше
+                                        занепокоєння та збудження, ніж зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q10" value="2" id="q10_2">
+                                    <label class="form-check-label text-secondary" for="q10_2">Я відчуваю таке
+                                        збудження, що мені важко всидіти на місці.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q10" value="3" id="q10_3">
+                                    <label class="form-check-label text-secondary" for="q10_3">Я змушений постійно
+                                        рухатися через сильне збудження/неспокій.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">11. Плач</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q11" value="0" id="q11_0" required>
-            <label class="form-check-label text-secondary" for="q11_0">Я не плачу частіше, ніж звичайно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q11" value="1" id="q11_1">
-            <label class="form-check-label text-secondary" for="q11_1">Я плачу частіше, ніж звичайно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q11" value="2" id="q11_2">
-            <label class="form-check-label text-secondary" for="q11_2">Я плачу щодня з будь-якого незначного приводу.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q11" value="3" id="q11_3">
-            <label class="form-check-label text-secondary" for="q11_3">Я хочу плакати, але не можу (відчуваю оніміння).</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Плач</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q11" value="0" id="q11_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q11_0">Я не плачу частіше, ніж
+                                        звичайно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q11" value="1" id="q11_1">
+                                    <label class="form-check-label text-secondary" for="q11_1">Я плачу частіше, ніж
+                                        звичайно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q11" value="2" id="q11_2">
+                                    <label class="form-check-label text-secondary" for="q11_2">Я плачу щодня з
+                                        будь-якого незначного приводу.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q11" value="3" id="q11_3">
+                                    <label class="form-check-label text-secondary" for="q11_3">Я хочу плакати, але не
+                                        можу (відчуваю оніміння).</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">12. Втрата інтересу</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q12" value="0" id="q12_0" required>
-            <label class="form-check-label text-secondary" for="q12_0">Я не втратив цікавості до інших людей і занять.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q12" value="1" id="q12_1">
-            <label class="form-check-label text-secondary" for="q12_1">Люди і речі цікавлять мене менше, ніж раніше.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q12" value="2" id="q12_2">
-            <label class="form-check-label text-secondary" for="q12_2">Я значною мірою втратив цікавість до інших людей та занять.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q12" value="3" id="q12_3">
-            <label class="form-check-label text-secondary" for="q12_3">Мене ніщо не цікавить, мене важко чимось зацікавити.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Втрата інтересу</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q12" value="0" id="q12_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q12_0">Я не втратив цікавості до
+                                        інших людей і занять.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q12" value="1" id="q12_1">
+                                    <label class="form-check-label text-secondary" for="q12_1">Люди і речі цікавлять
+                                        мене менше, ніж раніше.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q12" value="2" id="q12_2">
+                                    <label class="form-check-label text-secondary" for="q12_2">Я значною мірою втратив
+                                        цікавість до інших людей та занять.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q12" value="3" id="q12_3">
+                                    <label class="form-check-label text-secondary" for="q12_3">Мене ніщо не цікавить,
+                                        мене важко чимось зацікавити.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">13. Дратівливість</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q13" value="0" id="q13_0" required>
-            <label class="form-check-label text-secondary" for="q13_0">Я не дратуюся частіше, ніж звичайно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q13" value="1" id="q13_1">
-            <label class="form-check-label text-secondary" for="q13_1">Я дратуюся легше, ніж звичайно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q13" value="2" id="q13_2">
-            <label class="form-check-label text-secondary" for="q13_2">Я дратуюся значно легше, ніж звичайно.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q13" value="3" id="q13_3">
-            <label class="form-check-label text-secondary" for="q13_3">Я постійно відчуваю роздратування.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Дратівливість</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q13" value="0" id="q13_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q13_0">Я не дратуюся частіше,
+                                        ніж звичайно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q13" value="1" id="q13_1">
+                                    <label class="form-check-label text-secondary" for="q13_1">Я дратуюся легше, ніж
+                                        звичайно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q13" value="2" id="q13_2">
+                                    <label class="form-check-label text-secondary" for="q13_2">Я дратуюся значно легше,
+                                        ніж звичайно.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q13" value="3" id="q13_3">
+                                    <label class="form-check-label text-secondary" for="q13_3">Я постійно відчуваю
+                                        роздратування.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">14. Прийняття рішень</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q14" value="0" id="q14_0" required>
-            <label class="form-check-label text-secondary" for="q14_0">Мені не складніше, ніж звичайно, приймати рішення.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q14" value="1" id="q14_1">
-            <label class="form-check-label text-secondary" for="q14_1">Тепер я частіше зволікаю з прийняттям рішень.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q14" value="2" id="q14_2">
-            <label class="form-check-label text-secondary" for="q14_2">Мені дуже важко прийняти будь-яке рішення.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q14" value="3" id="q14_3">
-            <label class="form-check-label text-secondary" for="q14_3">Я не в змозі приймати жодних рішень.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Прийняття рішень</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q14" value="0" id="q14_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q14_0">Мені не складніше, ніж
+                                        звичайно, приймати рішення.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q14" value="1" id="q14_1">
+                                    <label class="form-check-label text-secondary" for="q14_1">Тепер я частіше зволікаю
+                                        з прийняттям рішень.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q14" value="2" id="q14_2">
+                                    <label class="form-check-label text-secondary" for="q14_2">Мені дуже важко прийняти
+                                        будь-яке рішення.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q14" value="3" id="q14_3">
+                                    <label class="form-check-label text-secondary" for="q14_3">Я не в змозі приймати
+                                        жодних рішень.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">15. Апетит</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q15" value="0" id="q15_0" required>
-            <label class="form-check-label text-secondary" for="q15_0">Мій апетит не змінився.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q15" value="1" id="q15_1a">
-            <label class="form-check-label text-secondary" for="q15_1a">Мій апетит дещо знижений у порівнянні зі звичайним.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q15" value="1" id="q15_1b">
-            <label class="form-check-label text-secondary" for="q15_1b">Мій апетит дещо підвищений у порівнянні зі звичайним.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q15" value="2" id="q15_2a">
-            <label class="form-check-label text-secondary" for="q15_2a">Мій апетит значно знижений (я майже не їм).</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q15" value="2" id="q15_2b">
-            <label class="form-check-label text-secondary" for="q15_2b">Мій апетит значно підвищений (я переїдаю).</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q15" value="3" id="q15_3a">
-            <label class="form-check-label text-secondary" for="q15_3a">У мене зовсім немає апетиту.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q15" value="3" id="q15_3b">
-            <label class="form-check-label text-secondary" for="q15_3b">Я постійно відчуваю сильний голод.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Апетит</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q15" value="0" id="q15_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q15_0">Мій апетит не
+                                        змінився.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q15" value="1" id="q15_1a">
+                                    <label class="form-check-label text-secondary" for="q15_1a">Мій апетит дещо знижений
+                                        у порівнянні зі звичайним.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q15" value="1" id="q15_1b">
+                                    <label class="form-check-label text-secondary" for="q15_1b">Мій апетит дещо
+                                        підвищений у порівнянні зі звичайним.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q15" value="2" id="q15_2a">
+                                    <label class="form-check-label text-secondary" for="q15_2a">Мій апетит значно
+                                        знижений (я майже не їм).</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q15" value="2" id="q15_2b">
+                                    <label class="form-check-label text-secondary" for="q15_2b">Мій апетит значно
+                                        підвищений (я переїдаю).</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q15" value="3" id="q15_3a">
+                                    <label class="form-check-label text-secondary" for="q15_3a">У мене зовсім немає
+                                        апетиту.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q15" value="3" id="q15_3b">
+                                    <label class="form-check-label text-secondary" for="q15_3b">Я постійно відчуваю
+                                        сильний голод.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">16. Відчуття власної цінності</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q16" value="0" id="q16_0" required>
-            <label class="form-check-label text-secondary" for="q16_0">Я не відчуваю себе нікчемним.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q16" value="1" id="q16_1">
-            <label class="form-check-label text-secondary" for="q16_1">Я відчуваю себе менш цінним та корисним, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q16" value="2" id="q16_2">
-            <label class="form-check-label text-secondary" for="q16_2">Я відчуваю себе менш цінним, ніж більшість людей.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q16" value="3" id="q16_3">
-            <label class="form-check-label text-secondary" for="q16_3">Я відчуваю себе повністю нікчемним.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Відчуття власної цінності</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q16" value="0" id="q16_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q16_0">Я не відчуваю себе
+                                        нікчемним.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q16" value="1" id="q16_1">
+                                    <label class="form-check-label text-secondary" for="q16_1">Я відчуваю себе менш
+                                        цінним та корисним, ніж зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q16" value="2" id="q16_2">
+                                    <label class="form-check-label text-secondary" for="q16_2">Я відчуваю себе менш
+                                        цінним, ніж більшість людей.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q16" value="3" id="q16_3">
+                                    <label class="form-check-label text-secondary" for="q16_3">Я відчуваю себе повністю
+                                        нікчемним.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">17. Концентрація</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q17" value="0" id="q17_0" required>
-            <label class="form-check-label text-secondary" for="q17_0">Я так само добре можу зосередитися, як завжди.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q17" value="1" id="q17_1">
-            <label class="form-check-label text-secondary" for="q17_1">Я не можу так само добре зосередитися, як завжди.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q17" value="2" id="q17_2">
-            <label class="form-check-label text-secondary" for="q17_2">Мені важко довго утримувати увагу на чому-небудь (читання, фільм).</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q17" value="3" id="q17_3">
-            <label class="form-check-label text-secondary" for="q17_3">Я не можу зосередитися ні на чому.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Концентрація</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q17" value="0" id="q17_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q17_0">Я так само добре можу
+                                        зосередитися, як завжди.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q17" value="1" id="q17_1">
+                                    <label class="form-check-label text-secondary" for="q17_1">Я не можу так само добре
+                                        зосередитися, як завжди.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q17" value="2" id="q17_2">
+                                    <label class="form-check-label text-secondary" for="q17_2">Мені важко довго
+                                        утримувати увагу на чому-небудь (читання, фільм).</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q17" value="3" id="q17_3">
+                                    <label class="form-check-label text-secondary" for="q17_3">Я не можу зосередитися ні
+                                        на чому.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">18. Енергія</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q18" value="0" id="q18_0" required>
-            <label class="form-check-label text-secondary" for="q18_0">Я так само енергійний, як зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q18" value="1" id="q18_1">
-            <label class="form-check-label text-secondary" for="q18_1">У мене менше енергії, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q18" value="2" id="q18_2">
-            <label class="form-check-label text-secondary" for="q18_2">У мене недостатньо енергії, щоб робити багато чого з необхідного.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q18" value="3" id="q18_3">
-            <label class="form-check-label text-secondary" for="q18_3">У мене немає сил ні на що.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Енергія</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q18" value="0" id="q18_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q18_0">Я так само енергійний, як
+                                        зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q18" value="1" id="q18_1">
+                                    <label class="form-check-label text-secondary" for="q18_1">У мене менше енергії, ніж
+                                        зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q18" value="2" id="q18_2">
+                                    <label class="form-check-label text-secondary" for="q18_2">У мене недостатньо
+                                        енергії, щоб робити багато чого з необхідного.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q18" value="3" id="q18_3">
+                                    <label class="form-check-label text-secondary" for="q18_3">У мене немає сил ні на
+                                        що.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">19. Втома</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q19" value="0" id="q19_0" required>
-            <label class="form-check-label text-secondary" for="q19_0">Я втомлююся не більш, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q19" value="1" id="q19_1">
-            <label class="form-check-label text-secondary" for="q19_1">Я втомлююся значно легше, ніж раніше.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q19" value="2" id="q19_2">
-            <label class="form-check-label text-secondary" for="q19_2">Через втому я не можу виконувати багато звичних справ.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q19" value="3" id="q19_3">
-            <label class="form-check-label text-secondary" for="q19_3">Через втому я не можу виконувати більшість звичних справ.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Втома</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q19" value="0" id="q19_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q19_0">Я втомлююся не більш, ніж
+                                        зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q19" value="1" id="q19_1">
+                                    <label class="form-check-label text-secondary" for="q19_1">Я втомлююся значно легше,
+                                        ніж раніше.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q19" value="2" id="q19_2">
+                                    <label class="form-check-label text-secondary" for="q19_2">Через втому я не можу
+                                        виконувати багато звичних справ.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q19" value="3" id="q19_3">
+                                    <label class="form-check-label text-secondary" for="q19_3">Через втому я не можу
+                                        виконувати більшість звичних справ.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">20. Сон</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q20" value="0" id="q20_0" required>
-            <label class="form-check-label text-secondary" for="q20_0">Я сплю так само, як завжди.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q20" value="1" id="q20_1a">
-            <label class="form-check-label text-secondary" for="q20_1a">Я сплю дещо більше, ніж зазвичай (гіперсомнія).</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q20" value="1" id="q20_1b">
-            <label class="form-check-label text-secondary" for="q20_1b">Я сплю дещо менше, ніж зазвичай (безсоння).</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q20" value="2" id="q20_2a">
-            <label class="form-check-label text-secondary" for="q20_2a">Я сплю значно більше, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q20" value="2" id="q20_2b">
-            <label class="form-check-label text-secondary" for="q20_2b">Я сплю значно менше, ніж зазвичай.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q20" value="3" id="q20_3a">
-            <label class="form-check-label text-secondary" for="q20_3a">Я сплю більшу частину доби.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q20" value="3" id="q20_3b">
-            <label class="form-check-label text-secondary" for="q20_3b">Я прокидаюся на 1-2 години раніше і не можу знову заснути.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Сон</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q20" value="0" id="q20_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q20_0">Я сплю так само, як
+                                        завжди.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q20" value="1" id="q20_1a">
+                                    <label class="form-check-label text-secondary" for="q20_1a">Я сплю дещо більше, ніж
+                                        зазвичай (гіперсомнія).</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q20" value="1" id="q20_1b">
+                                    <label class="form-check-label text-secondary" for="q20_1b">Я сплю дещо менше, ніж
+                                        зазвичай (безсоння).</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q20" value="2" id="q20_2a">
+                                    <label class="form-check-label text-secondary" for="q20_2a">Я сплю значно більше,
+                                        ніж зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q20" value="2" id="q20_2b">
+                                    <label class="form-check-label text-secondary" for="q20_2b">Я сплю значно менше, ніж
+                                        зазвичай.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q20" value="3" id="q20_3a">
+                                    <label class="form-check-label text-secondary" for="q20_3a">Я сплю більшу частину
+                                        доби.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q20" value="3" id="q20_3b">
+                                    <label class="form-check-label text-secondary" for="q20_3b">Я прокидаюся на 1-2
+                                        години раніше і не можу знову заснути.</label>
+                                </div>
+                            </div>
 
-    <div class="mb-4 p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
-        <p class="fw-semibold text-dark mb-3">21. Цікавість до статевого життя</p>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q21" value="0" id="q21_0" required>
-            <label class="form-check-label text-secondary" for="q21_0">Мій інтерес до статевого життя не зменшився.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q21" value="1" id="q21_1">
-            <label class="form-check-label text-secondary" for="q21_1">Статеве життя цікавить мене менше, ніж звичайно.</label>
-        </div>
-        <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="q21" value="2" id="q21_2">
-            <label class="form-check-label text-secondary" for="q21_2">Мій інтерес до статевого життя значно зменшився.</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="q21" value="3" id="q21_3">
-            <label class="form-check-label text-secondary" for="q21_3">Я повністю втратив інтерес до статевого життя.</label>
-        </div>
-    </div>
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Цікавість до статевого життя</p>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q21" value="0" id="q21_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q21_0">Мій інтерес до статевого
+                                        життя не зменшився.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q21" value="1" id="q21_1">
+                                    <label class="form-check-label text-secondary" for="q21_1">Статеве життя цікавить
+                                        мене менше, ніж звичайно.</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="q21" value="2" id="q21_2">
+                                    <label class="form-check-label text-secondary" for="q21_2">Мій інтерес до статевого
+                                        життя значно зменшився.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q21" value="3" id="q21_3">
+                                    <label class="form-check-label text-secondary" for="q21_3">Я повністю втратив
+                                        інтерес до статевого життя.</label>
+                                </div>
+                            </div>
 
                             <input type="hidden" name="testtype" value="BDI2">
 
