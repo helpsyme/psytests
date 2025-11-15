@@ -44,9 +44,15 @@ $(document).ready(function() {
 
         // --- Сбор данных формы ---
         const formData = {};
-        for (let i = 1; i <= 18; i++) {
-            formData[`q${i}`] = $(`input[name="q${i}"]:checked`, form).val() || "";
-        }
+
+        $(form)
+            .find('input[type="radio"][name^="q"]')
+            .each(function() {
+                const name = this.name;
+                if (!(name in formData)) {
+                    formData[name] = $(`input[name="${name}"]:checked`).val() || "";
+                }
+            });
         console.log("Данные формы:", formData);
 
         // --- Метаданные ---
