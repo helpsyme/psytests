@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Емоційна нестабільність та самосприйняття BST | HELPSY | Центр тестування</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- HEADER -->
+    <header class="shadow z-3" style="background-color: var(--header-bg) !important;">
+        <nav class="navbar navbar-expand-md py-4 navbar-dark-text">
+            <div class="container-xl px-4 px-sm-5 px-lg-4">
+                <div class="navbar-brand d-flex flex-column py-0">
+                    <span class="uk-logo">Helpsy</span>
+                    <span class="uk-logo-sub d-none d-sm-block">
+                        Підтримка вашого ментального здоров'я
+                    </span>
+                </div>
+
+                <button class="navbar-toggler p-2 rounded" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg class="h-6 w-6" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 align-items-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link btn fw-bold px-4 py-2 text-white rounded" href="#consultation"
+                                style="background-color: #39f;"> <!-- цвет логотипа -->
+                                Консультація лікаря онлайн
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1 w-100 py-5">
+        <div class="container-lg px-4 mx-auto" style="max-width: 760px;">
+            <!-- INFO BLOCK -->
+            <section class="mt-5 mb-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 bg-white shadow-lg">
+                        <!-- Заголовок -->
+                        <header class="text-center mb-5">
+                            <h1 class="fs-1 fw-bold text-dark mb-3" style="letter-spacing: 0.02em;">
+                                <i class="bi bi-clipboard-check text-primary me-2"></i>Емоційна нестабільність та
+                                самосприйняття
+                            </h1>
+                            <div class="mx-auto"
+                                style="width: 80px; height: 4px; background-color: #39f; border-radius: 2px;"></div>
+                        </header>
+
+                        <!-- Інструкція -->
+                        <section class="mt-4">
+                            <div class="p-4 rounded-3" style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <h2 class="fs-4 fw-semibold text-primary mb-3 d-flex align-items-center">
+                                    <i class="bi bi-info-circle me-2"></i> Інструкція до тесту
+                                </h2>
+                                <p class="text-secondary fs-6 mb-0" style="line-height: 1.8;">
+                                    Тест на симптоми емоційно-нестабільного розладу особистості (BST-UA) — інструмент
+                                    для попереднього скринінгу ознак прикордонного типу особистості. Опитувальник
+                                    створено на основі міжнародної методики Borderline Spectrum Test (IDRlabs) та
+                                    адаптовано українською мовою. Тест допомагає оцінити емоційну стабільність,
+                                    імпульсивність, ставлення до себе та взаємини з іншими людьми.
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!-- END INFO BLOCK -->
+
+            <!-- TEST BLOCK -->
+            <section id="main_test_block" style="display: none;" class="mb-5">
+                <div class="container">
+                    <div class="p-5 rounded-4 bg-white shadow-lg">
+
+                        <!-- Заголовок формы -->
+                        <header class="text-center mb-5">
+                            <h2 class="fs-2 fw-bold text-dark mb-3" style="letter-spacing: 0.02em;">
+                                <i class="bi bi-patch-question text-primary me-2"></i>Ваші відповіді
+                            </h2>
+                            <div class="mx-auto"
+                                style="width: 80px; height: 4px; background-color: #39f; border-radius: 2px;"></div>
+                        </header>
+
+                        <form id="form" name="form" class="mt-4">
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто шукаю компанію або розваги, щоб не
+                                    залишатися наодинці зі своїми думками.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q1" value="0" id="q1_0" required>
+                                    <label class="form-check-label text-secondary" for="q1_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q1" value="1" id="q1_1">
+                                    <label class="form-check-label text-secondary" for="q1_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q1" value="2" id="q1_2">
+                                    <label class="form-check-label text-secondary" for="q1_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" value="3" id="q1_3">
+                                    <label class="form-check-label text-secondary" for="q1_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Іноді мені здається, що мої думки чи почуття не
+                                    належать мені.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q2" value="0" id="q2_0" required>
+                                    <label class="form-check-label text-secondary" for="q2_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q2" value="1" id="q2_1">
+                                    <label class="form-check-label text-secondary" for="q2_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q2" value="2" id="q2_2">
+                                    <label class="form-check-label text-secondary" for="q2_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" value="3" id="q2_3">
+                                    <label class="form-check-label text-secondary" for="q2_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Буває, що я свідомо руйную речі, які для мене
+                                    важливі, через почуття провини чи самоненависті.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q3" value="0" id="q3_0" required>
+                                    <label class="form-check-label text-secondary" for="q3_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q3" value="1" id="q3_1">
+                                    <label class="form-check-label text-secondary" for="q3_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q3" value="2" id="q3_2">
+                                    <label class="form-check-label text-secondary" for="q3_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" value="3" id="q3_3">
+                                    <label class="form-check-label text-secondary" for="q3_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">У моєму житті було багато близьких друзів, з якими
+                                    ми раптово перестали спілкуватися.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q4" value="0" id="q4_0" required>
+                                    <label class="form-check-label text-secondary" for="q4_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q4" value="1" id="q4_1">
+                                    <label class="form-check-label text-secondary" for="q4_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q4" value="2" id="q4_2">
+                                    <label class="form-check-label text-secondary" for="q4_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" value="3" id="q4_3">
+                                    <label class="form-check-label text-secondary" for="q4_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Іншим людям буває складно зрозуміти мої емоції чи
+                                    поведінку.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q5" value="0" id="q5_0" required>
+                                    <label class="form-check-label text-secondary" for="q5_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q5" value="1" id="q5_1">
+                                    <label class="form-check-label text-secondary" for="q5_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q5" value="2" id="q5_2">
+                                    <label class="form-check-label text-secondary" for="q5_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" value="3" id="q5_3">
+                                    <label class="form-check-label text-secondary" for="q5_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Спочатку я ідеалізую людей, а потім легко
+                                    розчаровуюся в них.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q6" value="0" id="q6_0" required>
+                                    <label class="form-check-label text-secondary" for="q6_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q6" value="1" id="q6_1">
+                                    <label class="form-check-label text-secondary" for="q6_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q6" value="2" id="q6_2">
+                                    <label class="form-check-label text-secondary" for="q6_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q6" value="3" id="q6_3">
+                                    <label class="form-check-label text-secondary" for="q6_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Коли через власні дії я потрапляю у неприємності,
+                                    я вважаю, що заслужив це.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q7" value="0" id="q7_0" required>
+                                    <label class="form-check-label text-secondary" for="q7_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q7" value="1" id="q7_1">
+                                    <label class="form-check-label text-secondary" for="q7_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q7" value="2" id="q7_2">
+                                    <label class="form-check-label text-secondary" for="q7_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q7" value="3" id="q7_3">
+                                    <label class="form-check-label text-secondary" for="q7_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Є люди, яким я довіряю повністю, навіть якщо вони
+                                    мене розчаровують.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q8" value="0" id="q8_0" required>
+                                    <label class="form-check-label text-secondary" for="q8_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q8" value="1" id="q8_1">
+                                    <label class="form-check-label text-secondary" for="q8_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q8" value="2" id="q8_2">
+                                    <label class="form-check-label text-secondary" for="q8_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q8" value="3" id="q8_3">
+                                    <label class="form-check-label text-secondary" for="q8_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я мав(-ла) сексуальні стосунки без захисту, не
+                                    замислюючись про наслідки.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q9" value="0" id="q9_0" required>
+                                    <label class="form-check-label text-secondary" for="q9_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q9" value="1" id="q9_1">
+                                    <label class="form-check-label text-secondary" for="q9_1">Частково не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q9" value="2" id="q9_2">
+                                    <label class="form-check-label text-secondary" for="q9_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q9" value="3" id="q9_3">
+                                    <label class="form-check-label text-secondary" for="q9_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мене часто вважають занадто емоційним(-ою).</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q10" value="0" id="q10_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q10_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q10" value="1" id="q10_1">
+                                    <label class="form-check-label text-secondary" for="q10_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q10" value="2" id="q10_2">
+                                    <label class="form-check-label text-secondary" for="q10_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q10" value="3" id="q10_3">
+                                    <label class="form-check-label text-secondary" for="q10_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто роблю або кажу щось, не думаючи наперед.
+                                </p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q11" value="0" id="q11_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q11_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q11" value="1" id="q11_1">
+                                    <label class="form-check-label text-secondary" for="q11_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q11" value="2" id="q11_2">
+                                    <label class="form-check-label text-secondary" for="q11_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q11" value="3" id="q11_3">
+                                    <label class="form-check-label text-secondary" for="q11_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я постійно боюся, що мене залишать чи забудуть.
+                                </p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q12" value="0" id="q12_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q12_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q12" value="1" id="q12_1">
+                                    <label class="form-check-label text-secondary" for="q12_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q12" value="2" id="q12_2">
+                                    <label class="form-check-label text-secondary" for="q12_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q12" value="3" id="q12_3">
+                                    <label class="form-check-label text-secondary" for="q12_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Серед моїх знайомих є люди, яким я не довіряю, але
+                                    все одно спілкуюся з ними.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q13" value="0" id="q13_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q13_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q13" value="1" id="q13_1">
+                                    <label class="form-check-label text-secondary" for="q13_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q13" value="2" id="q13_2">
+                                    <label class="form-check-label text-secondary" for="q13_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q13" value="3" id="q13_3">
+                                    <label class="form-check-label text-secondary" for="q13_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Іноді я відчайдушно намагаюся утримати людей
+                                    поруч, навіть якщо це виглядає принизливо.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q14" value="0" id="q14_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q14_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q14" value="1" id="q14_1">
+                                    <label class="form-check-label text-secondary" for="q14_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q14" value="2" id="q14_2">
+                                    <label class="form-check-label text-secondary" for="q14_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q14" value="3" id="q14_3">
+                                    <label class="form-check-label text-secondary" for="q14_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я коли-небудь погрожував(-ла) заподіяти собі
+                                    шкоду, щоб не бути покинутим.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q15" value="0" id="q15_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q15_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q15" value="1" id="q15_1">
+                                    <label class="form-check-label text-secondary" for="q15_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q15" value="2" id="q15_2">
+                                    <label class="form-check-label text-secondary" for="q15_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q15" value="3" id="q15_3">
+                                    <label class="form-check-label text-secondary" for="q15_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я можу раптово зруйнувати стосунки з людьми, яких
+                                    раніше вважав(-ла) ідеальними.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q16" value="0" id="q16_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q16_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q16" value="1" id="q16_1">
+                                    <label class="form-check-label text-secondary" for="q16_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q16" value="2" id="q16_2">
+                                    <label class="form-check-label text-secondary" for="q16_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q16" value="3" id="q16_3">
+                                    <label class="form-check-label text-secondary" for="q16_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мені важко контролювати свої витрати або покупки,
+                                    особливо у стресі.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q17" value="0" id="q17_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q17_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q17" value="1" id="q17_1">
+                                    <label class="form-check-label text-secondary" for="q17_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q17" value="2" id="q17_2">
+                                    <label class="form-check-label text-secondary" for="q17_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q17" value="3" id="q17_3">
+                                    <label class="form-check-label text-secondary" for="q17_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">У моменти страху я фізично намагаюся втримати
+                                    людину, щоб вона не пішла.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q18" value="0" id="q18_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q18_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q18" value="1" id="q18_1">
+                                    <label class="form-check-label text-secondary" for="q18_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q18" value="2" id="q18_2">
+                                    <label class="form-check-label text-secondary" for="q18_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q18" value="3" id="q18_3">
+                                    <label class="form-check-label text-secondary" for="q18_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто сприймаю ситуації у крайніх категоріях:
+                                    або «все добре», або «все погано».</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q19" value="0" id="q19_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q19_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q19" value="1" id="q19_1">
+                                    <label class="form-check-label text-secondary" for="q19_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q19" value="2" id="q19_2">
+                                    <label class="form-check-label text-secondary" for="q19_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q19" value="3" id="q19_3">
+                                    <label class="form-check-label text-secondary" for="q19_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я можу сприймати нейтральні слова інших як
+                                    особисту критику.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q20" value="0" id="q20_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q20_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q20" value="1" id="q20_1">
+                                    <label class="form-check-label text-secondary" for="q20_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q20" value="2" id="q20_2">
+                                    <label class="form-check-label text-secondary" for="q20_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q20" value="3" id="q20_3">
+                                    <label class="form-check-label text-secondary" for="q20_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто відчуваю недовіру навіть до тих, хто мене
+                                    ніколи не зраджував.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q21" value="0" id="q21_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q21_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q21" value="1" id="q21_1">
+                                    <label class="form-check-label text-secondary" for="q21_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q21" value="2" id="q21_2">
+                                    <label class="form-check-label text-secondary" for="q21_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q21" value="3" id="q21_3">
+                                    <label class="form-check-label text-secondary" for="q21_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мені важко приймати рішення без підтримки чи
+                                    схвалення інших.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q22" value="0" id="q22_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q22_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q22" value="1" id="q22_1">
+                                    <label class="form-check-label text-secondary" for="q22_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q22" value="2" id="q22_2">
+                                    <label class="form-check-label text-secondary" for="q22_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q22" value="3" id="q22_3">
+                                    <label class="form-check-label text-secondary" for="q22_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мій настрій може різко змінюватися через незначні
+                                    події.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q23" value="0" id="q23_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q23_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q23" value="1" id="q23_1">
+                                    <label class="form-check-label text-secondary" for="q23_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q23" value="2" id="q23_2">
+                                    <label class="form-check-label text-secondary" for="q23_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q23" value="3" id="q23_3">
+                                    <label class="form-check-label text-secondary" for="q23_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто неправильно тлумачу наміри інших людей.
+                                </p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q24" value="0" id="q24_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q24_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q24" value="1" id="q24_1">
+                                    <label class="form-check-label text-secondary" for="q24_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q24" value="2" id="q24_2">
+                                    <label class="form-check-label text-secondary" for="q24_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q24" value="3" id="q24_3">
+                                    <label class="form-check-label text-secondary" for="q24_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мої близькі стосунки часто супроводжуються
+                                    конфліктами або драмою.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q25" value="0" id="q25_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q25_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q25" value="1" id="q25_1">
+                                    <label class="form-check-label text-secondary" for="q25_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q25" value="2" id="q25_2">
+                                    <label class="form-check-label text-secondary" for="q25_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q25" value="3" id="q25_3">
+                                    <label class="form-check-label text-secondary" for="q25_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я коливаюся між почуттям впевненості та
+                                    самознецінення.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q26" value="0" id="q26_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q26_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q26" value="1" id="q26_1">
+                                    <label class="form-check-label text-secondary" for="q26_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q26" value="2" id="q26_2">
+                                    <label class="form-check-label text-secondary" for="q26_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q26" value="3" id="q26_3">
+                                    <label class="form-check-label text-secondary" for="q26_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я мав(-ла) багато партнерів, з якими спочатку все
+                                    було чудово, але потім усе закінчувалося.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q27" value="0" id="q27_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q27_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q27" value="1" id="q27_1">
+                                    <label class="form-check-label text-secondary" for="q27_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q27" value="2" id="q27_2">
+                                    <label class="form-check-label text-secondary" for="q27_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q27" value="3" id="q27_3">
+                                    <label class="form-check-label text-secondary" for="q27_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мені здається, що деякі люди навмисно ставляться
+                                    до мене несправедливо.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q28" value="0" id="q28_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q28_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q28" value="1" id="q28_1">
+                                    <label class="form-check-label text-secondary" for="q28_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q28" value="2" id="q28_2">
+                                    <label class="form-check-label text-secondary" for="q28_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q28" value="3" id="q28_3">
+                                    <label class="form-check-label text-secondary" for="q28_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто оцінюю себе через те, як мене сприймають
+                                    інші.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q29" value="0" id="q29_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q29_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q29" value="1" id="q29_1">
+                                    <label class="form-check-label text-secondary" for="q29_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q29" value="2" id="q29_2">
+                                    <label class="form-check-label text-secondary" for="q29_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q29" value="3" id="q29_3">
+                                    <label class="form-check-label text-secondary" for="q29_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мої емоції часто здаються мені занадто
+                                    інтенсивними.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q30" value="0" id="q30_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q30_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q30" value="1" id="q30_1">
+                                    <label class="form-check-label text-secondary" for="q30_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q30" value="2" id="q30_2">
+                                    <label class="form-check-label text-secondary" for="q30_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q30" value="3" id="q30_3">
+                                    <label class="form-check-label text-secondary" for="q30_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Іноді я відчуваю всередині повну порожнечу.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q31" value="0" id="q31_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q31_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q31" value="1" id="q31_1">
+                                    <label class="form-check-label text-secondary" for="q31_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q31" value="2" id="q31_2">
+                                    <label class="form-check-label text-secondary" for="q31_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q31" value="3" id="q31_3">
+                                    <label class="form-check-label text-secondary" for="q31_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто відчуваю, що нічого не може заповнити мій
+                                    внутрішній вакуум.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q32" value="0" id="q32_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q32_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q32" value="1" id="q32_1">
+                                    <label class="form-check-label text-secondary" for="q32_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q32" value="2" id="q32_2">
+                                    <label class="form-check-label text-secondary" for="q32_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q32" value="3" id="q32_3">
+                                    <label class="form-check-label text-secondary" for="q32_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Іноді мені здається, що я не знаю, хто я
+                                    насправді.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q33" value="0" id="q33_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q33_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q33" value="1" id="q33_1">
+                                    <label class="form-check-label text-secondary" for="q33_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q33" value="2" id="q33_2">
+                                    <label class="form-check-label text-secondary" for="q33_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q33" value="3" id="q33_3">
+                                    <label class="form-check-label text-secondary" for="q33_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Мій настрій може змінюватися від радості до
+                                    розпачу без очевидної причини.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q34" value="0" id="q34_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q34_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q34" value="1" id="q34_1">
+                                    <label class="form-check-label text-secondary" for="q34_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q34" value="2" id="q34_2">
+                                    <label class="form-check-label text-secondary" for="q34_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q34" value="3" id="q34_3">
+                                    <label class="form-check-label text-secondary" for="q34_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">У моменти болю я можу шкодити собі фізично, щоб
+                                    відчути полегшення.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q35" value="0" id="q35_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q35_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q35" value="1" id="q35_1">
+                                    <label class="form-check-label text-secondary" for="q35_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q35" value="2" id="q35_2">
+                                    <label class="form-check-label text-secondary" for="q35_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q35" value="3" id="q35_3">
+                                    <label class="form-check-label text-secondary" for="q35_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Є люди, які, на мою думку, навмисно принижують
+                                    мене.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q36" value="0" id="q36_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q36_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q36" value="1" id="q36_1">
+                                    <label class="form-check-label text-secondary" for="q36_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q36" value="2" id="q36_2">
+                                    <label class="form-check-label text-secondary" for="q36_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q36" value="3" id="q36_3">
+                                    <label class="form-check-label text-secondary" for="q36_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я завдавав(-ла) собі болю, щоб повернути контроль
+                                    над емоціями.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q37" value="0" id="q37_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q37_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q37" value="1" id="q37_1">
+                                    <label class="form-check-label text-secondary" for="q37_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q37" value="2" id="q37_2">
+                                    <label class="form-check-label text-secondary" for="q37_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q37" value="3" id="q37_3">
+                                    <label class="form-check-label text-secondary" for="q37_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я часто різко змінюю життєві цілі, місце
+                                    проживання або оточення.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q38" value="0" id="q38_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q38_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q38" value="1" id="q38_1">
+                                    <label class="form-check-label text-secondary" for="q38_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q38" value="2" id="q38_2">
+                                    <label class="form-check-label text-secondary" for="q38_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q38" value="3" id="q38_3">
+                                    <label class="form-check-label text-secondary" for="q38_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я можу переїдати або навпаки — відмовлятися від
+                                    їжі через емоції.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q39" value="0" id="q39_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q39_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q39" value="1" id="q39_1">
+                                    <label class="form-check-label text-secondary" for="q39_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q39" value="2" id="q39_2">
+                                    <label class="form-check-label text-secondary" for="q39_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q39" value="3" id="q39_3">
+                                    <label class="form-check-label text-secondary" for="q39_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Коли я сильно хвилююся, мені важко залишатися у
+                                    реальності.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q40" value="0" id="q40_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q40_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q40" value="1" id="q40_1">
+                                    <label class="form-check-label text-secondary" for="q40_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q40" value="2" id="q40_2">
+                                    <label class="form-check-label text-secondary" for="q40_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q40" value="3" id="q40_3">
+                                    <label class="form-check-label text-secondary" for="q40_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я іноді вживаю алкоголь або інші речовини, щоб
+                                    полегшити емоційний біль.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q41" value="0" id="q41_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q41_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q41" value="1" id="q41_1">
+                                    <label class="form-check-label text-secondary" for="q41_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q41" value="2" id="q41_2">
+                                    <label class="form-check-label text-secondary" for="q41_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q41" value="3" id="q41_3">
+                                    <label class="form-check-label text-secondary" for="q41_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я відчуваю, що у моєму минулому сталося щось
+                                    травматичне, але не можу пригадати, що саме.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q42" value="0" id="q42_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q42_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q42" value="1" id="q42_1">
+                                    <label class="form-check-label text-secondary" for="q42_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q42" value="2" id="q42_2">
+                                    <label class="form-check-label text-secondary" for="q42_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q42" value="3" id="q42_3">
+                                    <label class="form-check-label text-secondary" for="q42_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Я маю труднощі з контролем апетиту або харчової
+                                    поведінки.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q43" value="0" id="q43_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q43_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q43" value="1" id="q43_1">
+                                    <label class="form-check-label text-secondary" for="q43_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q43" value="2" id="q43_2">
+                                    <label class="form-check-label text-secondary" for="q43_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q43" value="3" id="q43_3">
+                                    <label class="form-check-label text-secondary" for="q43_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">У стосунках я часто потребую підтвердження, що
+                                    мене ще люблять.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q44" value="0" id="q44_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q44_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q44" value="1" id="q44_1">
+                                    <label class="form-check-label text-secondary" for="q44_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q44" value="2" id="q44_2">
+                                    <label class="form-check-label text-secondary" for="q44_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q44" value="3" id="q44_3">
+                                    <label class="form-check-label text-secondary" for="q44_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Іноді я втрачаю уявлення про те, ким я є і чого
+                                    хочу від життя.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q45" value="0" id="q45_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q45_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q45" value="1" id="q45_1">
+                                    <label class="form-check-label text-secondary" for="q45_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q45" value="2" id="q45_2">
+                                    <label class="form-check-label text-secondary" for="q45_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q45" value="3" id="q45_3">
+                                    <label class="form-check-label text-secondary" for="q45_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Є люди, які щиро люблять мене та бачать у мені
+                                    хороше.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q46" value="0" id="q46_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q46_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q46" value="1" id="q46_1">
+                                    <label class="form-check-label text-secondary" for="q46_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q46" value="2" id="q46_2">
+                                    <label class="form-check-label text-secondary" for="q46_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q46" value="3" id="q46_3">
+                                    <label class="form-check-label text-secondary" for="q46_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Коли я роблю помилки, мені здається, що це був
+                                    «інший я».</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q47" value="0" id="q47_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q47_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q47" value="1" id="q47_1">
+                                    <label class="form-check-label text-secondary" for="q47_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q47" value="2" id="q47_2">
+                                    <label class="form-check-label text-secondary" for="q47_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q47" value="3" id="q47_3">
+                                    <label class="form-check-label text-secondary" for="q47_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Бувають моменти, коли життя здається безглуздим і
+                                    нестерпним.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q48" value="0" id="q48_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q48_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q48" value="1" id="q48_1">
+                                    <label class="form-check-label text-secondary" for="q48_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q48" value="2" id="q48_2">
+                                    <label class="form-check-label text-secondary" for="q48_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q48" value="3" id="q48_3">
+                                    <label class="form-check-label text-secondary" for="q48_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Людей, які мене залишили, я сприймаю як злих або
+                                    поганих.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q49" value="0" id="q49_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q49_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q49" value="1" id="q49_1">
+                                    <label class="form-check-label text-secondary" for="q49_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q49" value="2" id="q49_2">
+                                    <label class="form-check-label text-secondary" for="q49_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q49" value="3" id="q49_3">
+                                    <label class="form-check-label text-secondary" for="q49_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-4 rounded-3"
+                                style="background-color: #f8faff; border-left: 4px solid #39f;">
+                                <p class="fw-semibold text-dark mb-3">Думка про те, що мене можуть покинути, викликає
+                                    сильну тривогу й біль.</p>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q50" value="0" id="q50_0"
+                                        required>
+                                    <label class="form-check-label text-secondary" for="q50_0">Не згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q50" value="1" id="q50_1">
+                                    <label class="form-check-label text-secondary" for="q50_1">Частково не
+                                        згоден</label>
+                                </div>
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="q50" value="2" id="q50_2">
+                                    <label class="form-check-label text-secondary" for="q50_2">Частково згоден</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q50" value="3" id="q50_3">
+                                    <label class="form-check-label text-secondary" for="q50_3">Згоден</label>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="testtype" value="BST">
+
+                            <button type="submit" class="btn btn-primary px-5 py-3 fw-bold rounded-3 fs-5 w-100 mt-3">
+                                Обробити результати
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- END TEST BLOCK -->
+        </div>
+    </main>
+
+    <!-- Spinner -->
+    <div id="loadingSpinner">
+        <div></div>
+    </div>
+
+    <footer class="footer bg-dark mt-auto py-5">
+        <div class="container-xl px-4 px-sm-5 px-lg-4">
+            <div class="row g-4 text-sm footer-content">
+
+                <!-- Лого и описание -->
+                <div class="col-md-3 col-12 text-md-start text-center">
+                    <span class="uk-logo d-block">Helpsy</span>
+                    <span class="uk-logo-sub d-block">Підтримка вашого ментального здоров'я</span>
+                    <p class="mt-2 text-footer">
+                        Наша місія — зробити психологічну підтримку доступною та зрозумілою для кожного.
+                    </p>
+                    <p class="text-footer small mb-0">v.2.1</p>
+                </div>
+
+                <!-- Остальные блоки -->
+                <div class="col-md-9 d-flex flex-wrap justify-content-end gap-4 footer-links text-md-end text-center">
+
+                    <div class="col-md-3 col-12">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Допомога</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="https://psytests.psikhiatr-onlayn.kiev.ua/pp" target="_blank"
+                                    rel="noopener noreferrer" class="footer-link">Політика конфіденційності</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3 col-12">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Контакти</h4>
+                        <p>
+                            <a href="https://forms.gle/BubikRYKUbMaEMLb8" target="_blank" class="footer-link">Звернутися
+                                до нас</a>
+                        </p>
+                        <p class="footer-link mb-0">+38(044)338-26-53</p>
+                    </div>
+
+                    <div class="col-md-3 col-12">
+                        <h4 class="fs-5 fw-bold text-white mb-3">Ми посилаємось на</h4>
+                        <div class="d-flex flex-column align-items-center align-items-md-start gap-2">
+                            <img src="/img/moz.webp" alt="Логотип МОЗ" class="footer-logo img-fluid mb-2">
+                            <img src="/img/who.webp" alt="Логотип ВООЗ" class="footer-logo img-fluid mb-2">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- FingerprintJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js" defer></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+
+    <script src="js/spinner.js" defer></script>
+    <script src="js/check_testid.js" defer></script>
+    <script src="js/send_to_api.js" defer></script>
+</body>
+
+</html>
