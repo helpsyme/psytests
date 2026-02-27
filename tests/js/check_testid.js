@@ -22,7 +22,7 @@ $(document).ready(function() {
     console.log("Отправка POST-запроса на проверку testid:", testid);
 
     $.ajax({
-        url: "https://service.nexson.space/psytests/check_testid",
+        url: "https://psytests.nexson.xyz/check_testid",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ testid: testid }),

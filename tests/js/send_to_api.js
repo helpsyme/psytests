@@ -97,7 +97,7 @@ function sendPayload(form, $button, formData, meta) {
     console.log("Payload для отправки:", payload);
 
     $.ajax({
-        url: "https://service.nexson.space/psytests/send_test_data",
+        url: "https://psytests.nexson.xyz/send_test_data",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(payload),
